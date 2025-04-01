@@ -8,10 +8,13 @@ public class ObjectPlacer : MonoBehaviour
     public int PlaceObject(GameObject prefab, Vector3 position)
     {
 
-            GameObject newObject = Instantiate(prefab);
-            newObject.transform.position = position;
-            placedGameObject.Add(newObject);
-            return placedGameObject.Count - 1;
+        GameObject newObject = Instantiate(prefab);
+        newObject.transform.position = position;
+        if (newObject.TryGetComponent<IActivatable>(out IActivatable activeScript))
+            activeScript.Activate();
+
+        placedGameObject.Add(newObject);
+        return placedGameObject.Count - 1;
     }
 
     internal void RemoveObjectAt(int gameObjectIndex)

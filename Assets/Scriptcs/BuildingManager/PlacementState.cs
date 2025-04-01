@@ -42,7 +42,7 @@ public class PlacementState : IBuildingState
     public void EndState()
     {
         previewSystem.StopSchowingPreview();
-        buyingSystem.ResetSavedPrices();
+     //   buyingSystem.ResetSavedPrices();
     }
 
     public void OnAction(Vector3Int gridPosition)
@@ -51,8 +51,8 @@ public class PlacementState : IBuildingState
         if (placementValidity == false)
             return;
 
-        if (!buyingSystem.CanPlayerBuyObject())
-            return; // UI not enough resources feature
+        if (!buyingSystem.CanPlayerPlaceCurrentObject())
+            return; // add UI not enough resources feature
         
         
         buyingSystem.SpendResources();

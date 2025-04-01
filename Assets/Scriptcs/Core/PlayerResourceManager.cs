@@ -24,10 +24,11 @@ public class ResourceAmount
 public class PlayerResourceManager : MonoBehaviour
 {
     public static PlayerResourceManager instance;
+    
     [SerializeField] private List<ResourceAmount> resources = new List<ResourceAmount>();
 
-    [SerializeField] private int currentAmountWoodResource;
-    [SerializeField] private int currentAmountStoneResource;
+    [SerializeField] private int startWoodResource;
+    [SerializeField] private int startStoneResource;
 
     private void Awake()
     {
@@ -36,11 +37,11 @@ public class PlayerResourceManager : MonoBehaviour
     void Start()
     {
 
-        AddResource(ResourceTypesEnum.wood, 10);
-        AddResource(ResourceTypesEnum.stone, 10);
+        AddResource(ResourceTypesEnum.wood, startWoodResource);
+        AddResource(ResourceTypesEnum.stone, startStoneResource);
 
-        UpdateResourcesInUI(ResourceTypesEnum.wood, 10);
-        UpdateResourcesInUI(ResourceTypesEnum.stone, 10);
+        UpdateResourcesInUI(ResourceTypesEnum.wood, startWoodResource);
+        UpdateResourcesInUI(ResourceTypesEnum.stone, startStoneResource);
     }
 
 
@@ -103,5 +104,6 @@ public class PlayerResourceManager : MonoBehaviour
             default:
                 break;
         }
+        UIManager.instance.updateShopUI();
     }
 }
