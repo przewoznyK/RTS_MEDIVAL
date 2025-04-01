@@ -7,12 +7,6 @@ public enum UnitTool
     sword
 }
 
-public enum CurrentGatheringeResource
-{ 
-    none,
-    wood,
-    stone
-}
 
 
 [CreateAssetMenu(fileName = "UnitStatisitcsSO", menuName = "Scriptable Objects/UnitStatisitcsSO")]
@@ -20,18 +14,18 @@ public class UnitStatisitcsSO : ScriptableObject
 {
     //public UnitTool unitTool { get; private set; }
     [SerializeField] private UnitTool unitTool;
-    [SerializeField] private CurrentGatheringeResource currentGatheringeResource;
+    [SerializeField] private ResourceTypesEnum currentGatheringeResource;
     public UnitTool GetUnitToll()
     {
         return unitTool;
     }
 
-    public CurrentGatheringeResource GetCurrentGatheringeResource()
+    public ResourceTypesEnum GetCurrentGatheringeResource()
     {
         return currentGatheringeResource;
     }
 
-    public void SetCurrentGatheringResource(CurrentGatheringeResource newCurrentGatheringResource)
+    public void SetCurrentGatheringResource(ResourceTypesEnum newCurrentGatheringResource)
     {
         currentGatheringeResource = newCurrentGatheringResource;
     }

@@ -13,6 +13,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private PreviewSystem preview;
     private Vector3 lastDetectedPosition = Vector3Int.zero;
     [SerializeField] private ObjectPlacer objectPlacer;
+    [SerializeField] private BuyingSystem buyingSystem;
 
     IBuildingState buildingState;
     private void Start()
@@ -46,7 +47,8 @@ public class PlacementSystem : MonoBehaviour
                                            database,
                                            floorData,
                                            furnitureData,
-                                           objectPlacer);
+                                           objectPlacer,
+                                           buyingSystem);
 
         inputManager.onClicked += PlaceStructure;
         inputManager.onExit += StopPlacement;

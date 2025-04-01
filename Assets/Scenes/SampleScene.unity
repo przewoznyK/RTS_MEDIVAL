@@ -908,9 +908,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157713604}
-        m_TargetAssemblyTypeName: PlacementSystem, Assembly-CSharp
-        m_MethodName: StartPlacement
+      - m_Target: {fileID: 637542248}
+        m_TargetAssemblyTypeName: BuyingSystem, Assembly-CSharp
+        m_MethodName: StartBuyingProcces
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1033,6 +1033,7 @@ Transform:
   - {fileID: 1080780760}
   - {fileID: 1569570069}
   - {fileID: 381808652}
+  - {fileID: 637542247}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &562521852
@@ -1367,6 +1368,52 @@ MonoBehaviour:
   objectToPlace: {fileID: 1657932571853216205, guid: 0b154887d31aba043b55486524109625, type: 3}
   gridSize: 1
   ghostObject: {fileID: 0}
+--- !u!1 &637542246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637542247}
+  - component: {fileID: 637542248}
+  m_Layer: 0
+  m_Name: BuyingSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &637542247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637542246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 409319147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &637542248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637542246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7314cb8fd059743935b483b5086a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: 617de55daeb319040822b08699e2e12a, type: 2}
+  placementSystem: {fileID: 1157713604}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2265,7 @@ GameObject:
   - component: {fileID: 1109810482}
   - component: {fileID: 1109810481}
   m_Layer: 5
-  m_Name: BuyingSystem
+  m_Name: BuyingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2377,6 +2424,7 @@ MonoBehaviour:
   gridVisualization: {fileID: 2004755611}
   preview: {fileID: 1569570070}
   objectPlacer: {fileID: 381808653}
+  buyingSystem: {fileID: 637542248}
 --- !u!4 &1212260921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1640058516458057627, guid: 156e98d4f4451e047a931b77481a40e6, type: 3}
@@ -3320,6 +3368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46020077430d1a499b1573e5777cd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resources: []
   currentAmountWoodResource: 0
   currentAmountStoneResource: 0
 --- !u!4 &1915905228

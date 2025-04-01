@@ -62,10 +62,9 @@ public class RemovingState : IBuildingState
                 return;
             }
 
-             //  selectedData.RemoveObjectAt(gridPosition);
-        //   objectPlacer.RemoveObjectAt(gameObjectIndex);
+            selectedData.RemoveObjectAt(gridPosition);
+            objectPlacer.RemoveObjectAt(gameObjectIndex);
         }
-        Debug.Log(selectedData +  " -> " +gridPosition);
         Vector3 cellPosition = grid.CellToWorld(gridPosition);
         previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));
     }

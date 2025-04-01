@@ -10,14 +10,15 @@ public class PlacementState : IBuildingState
     GridData floorData;
     GridData buildingData;
     ObjectPlacer objectPlacer;
-
+    BuyingSystem buyingSystem;
     public PlacementState(int iD,
                           Grid grid,
                           PreviewSystem previewSystem,
                           ObjectsDatabaseSO database,
                           GridData floorData,
                           GridData buildingData,
-                          ObjectPlacer objectPlacer)
+                          ObjectPlacer objectPlacer,
+                          BuyingSystem buyingSystem)
     {
         ID = iD;
         this.grid = grid;
@@ -26,6 +27,7 @@ public class PlacementState : IBuildingState
         this.floorData = floorData;
         this.buildingData = buildingData;
         this.objectPlacer = objectPlacer;
+        this.buyingSystem = buyingSystem;
 
         selectedObjectIndex = database.objectsData.FindIndex(data => data.ID == ID);
         if (selectedObjectIndex > -1)
@@ -40,6 +42,7 @@ public class PlacementState : IBuildingState
     public void EndState()
     {
         previewSystem.StopSchowingPreview();
+        buyingSystem.ResetSavedPrices();
     }
 
     public void OnAction(Vector3Int gridPosition)
@@ -48,10 +51,14 @@ public class PlacementState : IBuildingState
         if (placementValidity == false)
             return;
 
+        if (!buyingSystem.CanPlayerBuyObject())
+            return; // UI not enough resources feature
+        
+        
+        buyingSystem.SpendResources();
         int index = objectPlacer.PlaceObject(database.objectsData[selectedObjectIndex].Prefab, grid.CellToWorld(gridPosition));
 
         GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? floorData : buildingData;
-        Debug.Log("ADD ON GRID" + gridPosition);
         selectedData.AddObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size, database.objectsData[selectedObjectIndex].ID, index);
         previewSystem.UpdatePosition(grid.CellToWorld(gridPosition), false);
     }

@@ -11,9 +11,9 @@ public class UnitGatheringResources : MonoBehaviour
 
         animator.SetBool("IsMining", true);
 
-        if (unitStatisitcs.GetCurrentGatheringeResource() == CurrentGatheringeResource.wood)
+        if (unitStatisitcs.GetCurrentGatheringeResource() == ResourceTypesEnum.wood)
             StartCoroutine(GatheringWoodCycle());
-        else if (unitStatisitcs.GetCurrentGatheringeResource() == CurrentGatheringeResource.stone)
+        else if (unitStatisitcs.GetCurrentGatheringeResource() == ResourceTypesEnum.stone)
             StartCoroutine(GatheringStoneCycle());
 
     }
@@ -31,13 +31,13 @@ public class UnitGatheringResources : MonoBehaviour
     {
 
         yield return new WaitForSeconds(3f);
-        PlayerResourceManager.instance.UpdateCurrentAmountWoodResource(3);
+        PlayerResourceManager.instance.AddResource(ResourceTypesEnum.wood, 3);
         StartCoroutine(GatheringWoodCycle());
     }
     IEnumerator GatheringStoneCycle()
     {
         yield return new WaitForSeconds(3f);
-        PlayerResourceManager.instance.UpdateCurrentAmountStoneResource(3);
+        PlayerResourceManager.instance.AddResource(ResourceTypesEnum.stone, 3);
         StartCoroutine(GatheringStoneCycle());
     }
 

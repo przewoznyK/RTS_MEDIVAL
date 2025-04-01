@@ -16,7 +16,7 @@ public class UnitMovement : MonoBehaviour
     [SerializeField] private LayerMask woodResourceMask;
     private Vector3 resourcePosition;
     private bool isMovingToResources;
-    private CurrentGatheringeResource newCurrentGatheringResource;
+    private ResourceTypesEnum newCurrentGatheringResource;
     void Start()
     {
         myCam = Camera.main;
@@ -46,7 +46,7 @@ public class UnitMovement : MonoBehaviour
             {
                 resourcePosition = hit.point;
                 agent.SetDestination(hit.point);
-                newCurrentGatheringResource = CurrentGatheringeResource.wood;
+                newCurrentGatheringResource = ResourceTypesEnum.wood;
                 isMovingToResources = true;
                 agent.stoppingDistance = startGatheringDistance;
 
@@ -55,7 +55,7 @@ public class UnitMovement : MonoBehaviour
             {
                 resourcePosition = hit.point;
                 agent.SetDestination(hit.point);
-                newCurrentGatheringResource = CurrentGatheringeResource.stone;
+                newCurrentGatheringResource = ResourceTypesEnum.stone;
                 isMovingToResources = true;
                 agent.stoppingDistance = startGatheringDistance;
 
