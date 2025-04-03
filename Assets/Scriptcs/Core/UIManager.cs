@@ -10,9 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentAmountStoneResourceTextUI;
     [Header("Shop")]
     [SerializeField] private ShopUI shopUI;
-    [Header("Building")]
-    [SerializeField] private Transform buildingPanel;
-    [SerializeField] private TextMeshProUGUI buildingTitle;
+
     void Awake()
     {
         instance = this;
@@ -38,9 +36,5 @@ public class UIManager : MonoBehaviour
         shopUI.RefreshShopButtons();
     }
 
-    public void ActiveBuildingPanel(string buildingName)
-    {
-        buildingPanel.gameObject.SetActive(true);
-        buildingTitle.text = buildingName;
-    }
+
 }

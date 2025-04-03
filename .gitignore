@@ -1,0 +1,17 @@
+/.vs
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+Assembly-CSharp.Player.csproj
+/Assets/Packs
+Assets/Packs.meta
+Assets/Samples/Shader Graph.meta
+Assets/Samples/Shader Graph/17.0.3.meta
+/Assets/Samples/Shader Graph
+/Assets/TextMesh Pro
+Assets/TextMesh Pro.meta
+Library/AnnotationManager
+Library/APIUpdater/project-dependencies.graph
+/Library
+/Logs
+/obj
+/Packages

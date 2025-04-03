@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingName: Town Center
+  startUnitPosition: {x: 3, y: 0, z: 3}
 --- !u!1 &7362514756282754313
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18b8ae839b6c9a44b58d6602c1aebf8, type: 3}
-  m_Name: Miner
+  m_Script: {fileID: 11500000, guid: 92ee3323d31c68440b8e6744a18e6aa1, type: 3}
+  m_Name: UnitsDatabase
   m_EditorClassIdentifier: 
-  unitTool: 1
-  currentGatheringeResource: 2
+  unitsData:
+  - <ID>k__BackingField: 0
+    <Name>k__BackingField: 
+    <unitType>k__BackingField: 0
+    <Prefab>k__BackingField: {fileID: 0}
+    objectPrices: []

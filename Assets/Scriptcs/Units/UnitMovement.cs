@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class UnitMovement : MonoBehaviour
 {
     Camera myCam;
-    [SerializeField] private UnitStatisitcsSO unitStatisitcs;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
     [SerializeField] private UnitGatheringResources unitGatheringResources;
@@ -12,10 +11,12 @@ public class UnitMovement : MonoBehaviour
     [SerializeField] private LayerMask ground;
     [Header("GatheringResources")]
     [SerializeField] private bool canGatheringResources;
+    [SerializeField] private bool canGatheringWood;
+    [SerializeField] private bool canGatheringStone;
     [SerializeField] private LayerMask stoneResourceMask;
     [SerializeField] private LayerMask woodResourceMask;
     private Vector3 resourcePosition;
-    private bool isMovingToResources;
+    public bool isMovingToResources;
     private ResourceTypesEnum newCurrentGatheringResource;
     void Start()
     {
@@ -42,7 +43,7 @@ public class UnitMovement : MonoBehaviour
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
         if(canGatheringResources)
         {
-            if (unitStatisitcs.GetUnitToll() == UnitTool.axe && Physics.Raycast(ray, out hit, Mathf.Infinity, woodResourceMask))
+            if (canGatheringWood && Physics.Raycast(ray, out hit, Mathf.Infinity, woodResourceMask))
             {
                 resourcePosition = hit.point;
                 agent.SetDestination(hit.point);
@@ -51,7 +52,7 @@ public class UnitMovement : MonoBehaviour
                 agent.stoppingDistance = startGatheringDistance;
 
             }
-            else if (unitStatisitcs.GetUnitToll() == UnitTool.pickaxe && Physics.Raycast(ray, out hit, Mathf.Infinity, stoneResourceMask))
+            else if (canGatheringStone && Physics.Raycast(ray, out hit, Mathf.Infinity, stoneResourceMask))
             {
                 resourcePosition = hit.point;
                 agent.SetDestination(hit.point);
@@ -81,8 +82,11 @@ public class UnitMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, resourcePosition) <= startGatheringDistance + 0.5f)
         {
-            unitStatisitcs.SetCurrentGatheringResource(newCurrentGatheringResource);
+            //    unitStats.SetCurrentGatheringResource(newCurrentGatheringResource);
+            
             unitGatheringResources.enabled = true;
+            unitGatheringResources.SetCurrentGatheringTypeEnum(GatheringResourceTypeEnum.wood);
+            unitGatheringResources.StartGathering();
             animator.SetBool("IsWalking", false);
             transform.GetChild(0).gameObject.SetActive(false);
             resourcePosition = Vector3.zero;

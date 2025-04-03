@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d71cadb06e371547bf8e1256d7cd5cf, type: 3}
-  m_Name: Database
+  m_Name: BuildingDatabase
   m_EditorClassIdentifier: 
   objectsData:
   - <Name>k__BackingField: TownCenter_FirstAge_Level1

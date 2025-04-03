@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class TownCenter : MonoBehaviour, IActivatable, IPointerClickHandler
 {
     [SerializeField] private string buildingName;
+    [SerializeField] private Vector3 startUnitPosition;
     public void Activate()
     {
         this.enabled = true;
@@ -19,6 +20,12 @@ public class TownCenter : MonoBehaviour, IActivatable, IPointerClickHandler
     void OnMouseDown()
     {
         Debug.Log("Klikniêto obiekt!");
-        UIManager.instance.ActiveBuildingPanel(buildingName);
+        BuildingUI.instance.ActiveBuildingPanel(buildingName);
     }
+
+    public void BuyUnit(int unitId)
+    {
+        PlaceUnit.instance.StartProcess(unitId, startUnitPosition);
+    }
+
 }

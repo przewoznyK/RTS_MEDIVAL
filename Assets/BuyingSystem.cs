@@ -5,8 +5,10 @@ using UnityEngine;
 public class BuyingSystem : MonoBehaviour
 {
     public static BuyingSystem instance;
-    [SerializeField] private ObjectsDatabaseSO database;
+    [SerializeField] private ObjectsDatabaseSO buildingsDatabase;
+    [SerializeField] private UnitsDatabaseSO unitsDatabase;
     [SerializeField] private PlacementSystem placementSystem;
+    [SerializeField] private PlaceUnit placeUnit;
     int saveIdToEndPlaceObject = -1;
 
     List<ObjectPrices> objectPrices = new();
@@ -20,12 +22,12 @@ public class BuyingSystem : MonoBehaviour
     // Shop UI checking can player have enough resource to active buttons in shop
     public bool CanPlayerStartBuyObject(int objectId)
     {
-        if (database.objectsData.Count < objectId - 1)
+        if (buildingsDatabase.objectsData.Count < objectId - 1)
             return false; // Object doesnt exists in database
 
 
         // Take price list
-        objectPrices = new List<ObjectPrices>(database.objectsData[objectId - 1].objectPrices);
+        objectPrices = new List<ObjectPrices>(buildingsDatabase.objectsData[objectId - 1].objectPrices);
 
         foreach (var price in objectPrices)
         {
@@ -38,7 +40,7 @@ public class BuyingSystem : MonoBehaviour
     }
 
     // Player start preview object on grid 
-    public void StartBuyingProcces(int objectId)
+    public void StartBuyingBuildingProcces(int objectId)
     {
         // Convert Value (in shop object count start on 1 beacuse 0 is reserved to floor)
         saveIdToEndPlaceObject = objectId -= 1;
@@ -46,15 +48,23 @@ public class BuyingSystem : MonoBehaviour
         placementSystem.StartPlacement(saveIdToEndPlaceObject);
     }
 
+    public void StartBuyingUnitProcces(int objectId)
+    {
+        // Convert Value (in shop object count start on 1 beacuse 0 is reserved to floor)
+        //  saveIdToEndPlaceObject = objectId -= 1;
+        saveIdToEndPlaceObject = objectId -= 1;
+        // placementSystem.StartPlacement(saveIdToEndPlaceObject);
+    }
+
     // One more time we check have enought resources to place object
     public bool CanPlayerPlaceCurrentObject()
     {
-        if (database.objectsData.Count < saveIdToEndPlaceObject)
+        if (buildingsDatabase.objectsData.Count < saveIdToEndPlaceObject)
             return false; // Object doesnt exists in database
 
 
         // Take price list
-        objectPrices = new List<ObjectPrices>(database.objectsData[saveIdToEndPlaceObject].objectPrices);
+        objectPrices = new List<ObjectPrices>(buildingsDatabase.objectsData[saveIdToEndPlaceObject].objectPrices);
 
         foreach (var price in objectPrices)
         {
@@ -77,6 +87,14 @@ public class BuyingSystem : MonoBehaviour
     }
     public ObjectData GetObjectData(int objectId)
     {
-        return database.objectsData[objectId - 1];
+        return buildingsDatabase.objectsData[objectId - 1];
     }
 }
+
+public enum ObjectTypeEnum
+{
+    building,
+    unit
+}
+
+

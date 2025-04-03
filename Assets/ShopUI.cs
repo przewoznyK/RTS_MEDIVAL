@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopUI : MonoBehaviour
 {
     public static ShopUI instance;
-    [SerializeField] private Transform parentObject; // Obiekt, którego dzieci pobieramy
+    [SerializeField] private Transform parentObject;
     private List<ShopObject> shopObjects = new List<ShopObject>();
 
     [Header("DescriptionPanel")]
@@ -17,13 +17,11 @@ public class ShopUI : MonoBehaviour
     {
         instance = this;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LoadShopObjects();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
