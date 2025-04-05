@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsData:
   - <ID>k__BackingField: 0
-    <Name>k__BackingField: 
+    <Name>k__BackingField: Lumberjack
     <unitType>k__BackingField: 0
-    <Prefab>k__BackingField: {fileID: 0}
+    <Prefab>k__BackingField: {fileID: 6330308774183402280, guid: 0f86fe93c24aafe4c83a39372abce5ac, type: 3}
     objectPrices: []

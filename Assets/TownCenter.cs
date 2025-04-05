@@ -5,6 +5,7 @@ public class TownCenter : MonoBehaviour, IActivatable, IPointerClickHandler
 {
     [SerializeField] private string buildingName;
     [SerializeField] private Vector3 startUnitPosition;
+    [SerializeField] private UnitTypeEnum[] unitsToBuy;
     public void Activate()
     {
         this.enabled = true;
@@ -21,6 +22,7 @@ public class TownCenter : MonoBehaviour, IActivatable, IPointerClickHandler
     {
         Debug.Log("Klikniêto obiekt!");
         BuildingUI.instance.ActiveBuildingPanel(buildingName);
+        BuildingUI.instance.ActiveBuyUnitButton(unitsToBuy);
     }
 
     public void BuyUnit(int unitId)

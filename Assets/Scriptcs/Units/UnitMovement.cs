@@ -85,7 +85,7 @@ public class UnitMovement : MonoBehaviour
             //    unitStats.SetCurrentGatheringResource(newCurrentGatheringResource);
             
             unitGatheringResources.enabled = true;
-            unitGatheringResources.SetCurrentGatheringTypeEnum(GatheringResourceTypeEnum.wood);
+            unitGatheringResources.SetCurrentGatheringTypeEnum(ResourceTypesEnum.wood);
             unitGatheringResources.StartGathering();
             animator.SetBool("IsWalking", false);
             transform.GetChild(0).gameObject.SetActive(false);

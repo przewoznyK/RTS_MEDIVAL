@@ -23,6 +23,18 @@ public class UnitsDatabaseSO : ScriptableObject
         UnitStats unit = unitsData.FirstOrDefault(u => u.ID == id);
         return unit?.Prefab; // Jeœli znajdzie, zwróci Prefab, jeœli nie, zwróci null.
     }
+
+    public UnitStats GetUnitStatsByID(int id)
+    {
+        UnitStats unit = unitsData.FirstOrDefault(u => u.ID == id);
+        return unit;
+    }
+
+    public UnitStats GetUnitStatsByUnitType(UnitTypeEnum unitType)
+    {
+        UnitStats unit = unitsData.FirstOrDefault(u => u.unitType == unitType);
+        return unit;
+    }
 }
 
 [Serializable]
@@ -32,8 +44,11 @@ public class UnitStats
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public UnitTypeEnum unitType { get; private set; }
     [field: SerializeField] public GameObject Prefab { get; private set; }
+    [field: SerializeField] public Sprite Sprite { get; private set; }
 
     [field: SerializeField] public List<ObjectPrices> objectPrices = new List<ObjectPrices>();
+
+
 
 
     internal ResourceTypesEnum GetCurrentGatheringeResource()

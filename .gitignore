@@ -15,3 +15,9 @@ Library/APIUpdater/project-dependencies.graph
 /Logs
 /obj
 /Packages
+*.csproj
+ProjectSettings/DynamicsManager.asset
+/ProjectSettings
+Assets/TownCenter.cs
+Temp/__Backupscenes/0.backup
+/Temp

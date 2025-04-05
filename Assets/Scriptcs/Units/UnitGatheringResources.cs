@@ -1,18 +1,11 @@
-using System;
 using System.Collections;
-using System.Globalization;
 using UnityEngine;
 
-public enum GatheringResourceTypeEnum
-{
-    wood,
-    stone
-}
 public class UnitGatheringResources : MonoBehaviour
 {
     [SerializeField] private UnitStats unitStats;
     [SerializeField] private Animator animator;
-    [SerializeField] private GatheringResourceTypeEnum currentGatherignResourceEnum;
+    [SerializeField] private ResourceTypesEnum currentGatherignResourceEnum;
 
     private void OnEnable()
     {
@@ -27,16 +20,13 @@ public class UnitGatheringResources : MonoBehaviour
 
     public void StartGathering()
     {
-        Debug.Log("START GATHERING");
         switch (currentGatherignResourceEnum)
         {
-            case GatheringResourceTypeEnum.wood:
+            case ResourceTypesEnum.wood:
                StartCoroutine(GatheringWoodCycle());
-                Debug.Log("START 1");
                 break;
-            case GatheringResourceTypeEnum.stone:
+            case ResourceTypesEnum.stone:
                 StartCoroutine(GatheringStoneCycle());
-                Debug.Log("START 2");
                 break;
 
         }
@@ -65,7 +55,7 @@ public class UnitGatheringResources : MonoBehaviour
         StartCoroutine(GatheringStoneCycle());
     }
 
-    public void SetCurrentGatheringTypeEnum(GatheringResourceTypeEnum gatheringResourceTypeEnum)
+    public void SetCurrentGatheringTypeEnum(ResourceTypesEnum gatheringResourceTypeEnum)
     {
         currentGatherignResourceEnum = gatheringResourceTypeEnum;
     }
