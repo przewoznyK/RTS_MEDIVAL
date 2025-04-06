@@ -21,13 +21,13 @@ public class TownCenter : MonoBehaviour, IActivatable, IPointerClickHandler
     void OnMouseDown()
     {
         Debug.Log("Klikniêto obiekt!");
-        BuildingUI.instance.ActiveBuildingPanel(buildingName);
-        BuildingUI.instance.ActiveBuyUnitButton(unitsToBuy);
+        BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingName, unitsToBuy, startUnitPosition);
+
     }
 
     public void BuyUnit(int unitId)
     {
-        PlaceUnit.instance.StartProcess(unitId, startUnitPosition);
+     //   PlaceUnit.instance.StartProcess(unitId, startUnitPosition);
     }
 
 }

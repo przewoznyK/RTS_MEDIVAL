@@ -65,8 +65,8 @@
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\DepthSliceUI.cs" />
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\MarkerColumnFilter.cs" />
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\MarkerData.cs" />
-    <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\BoxAndWhiskerPlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\ProfileTable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\BoxAndWhiskerPlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\ProgressBarDisplay.cs" />
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\Columns.cs" />
     <Compile Include="Library\PackageCache\com.unity.performance.profile-analyzer\Editor\ProfileAnalysis.cs" />

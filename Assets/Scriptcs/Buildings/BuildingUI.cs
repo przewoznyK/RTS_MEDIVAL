@@ -12,18 +12,12 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private UnitsDatabaseSO unitsDatabase;
     [Header("Unit Buy Buttons")]
     [SerializeField] private Button[] unitBuyButton;
-
+    [SerializeField] private Vector3 currentStartUnitPosition;
     private void Awake()
     {
         instance = this;
     }
-    public void ActiveBuildingPanel(string buildingName)
-    {
-        buildingPanel.gameObject.SetActive(true);
-        buildingTitle.text = buildingName;
-    }
-
-    public void ActiveBuyUnitButton(UnitTypeEnum[] units)
+    public void ActiveBuildingPanelAndPrepareButtons(string buildingName, UnitTypeEnum[] units, Vector3 startUnitPosition)
     {
         
         for (int i = 0; i < units.Length; i++)
@@ -31,8 +25,21 @@ public class BuildingUI : MonoBehaviour
             UnitStats unitStats = unitsDatabase.GetUnitStatsByUnitType(units[i]);
             Button currentButton = unitBuyButton[i];
 
+
             currentButton.enabled = true;
+            currentButton.GetComponent<ShopObject>().SetObjectToBuyIdAndRefreshButton(unitStats.ID);
             currentButton.image.sprite = unitStats.Sprite;
         }
+
+     
+        buildingTitle.text = buildingName;
+        buildingPanel.gameObject.SetActive(true);
+        currentStartUnitPosition = startUnitPosition;
     }
+
+    public void StartBuyingUnitProcess(int unitID)
+    {
+        BuyingSystem.instance.BuyUnit(unitID, currentStartUnitPosition);
+    }
+    
 }

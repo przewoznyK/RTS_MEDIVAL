@@ -17,4 +17,13 @@ MonoBehaviour:
     <Name>k__BackingField: Lumberjack
     <unitType>k__BackingField: 0
     <Prefab>k__BackingField: {fileID: 6330308774183402280, guid: 0f86fe93c24aafe4c83a39372abce5ac, type: 3}
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 1c728f7cc6548f24cadceb6478fa25cc, type: 3}
+    objectPrices:
+    - <priceType>k__BackingField: 1
+      <priceValue>k__BackingField: 15
+  - <ID>k__BackingField: 1
+    <Name>k__BackingField: Miner
+    <unitType>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+    <Sprite>k__BackingField: {fileID: 21300000, guid: b54b94da5cee5c046bf327246ac181e6, type: 3}
     objectPrices: []

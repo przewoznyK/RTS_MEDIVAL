@@ -6,7 +6,7 @@ public class ShopUI : MonoBehaviour
 {
     public static ShopUI instance;
     [SerializeField] private Transform parentObject;
-    private List<ShopObject> shopObjects = new List<ShopObject>();
+    public List<ShopObject> shopObjectsList = new List<ShopObject>();
 
     [Header("DescriptionPanel")]
     [SerializeField] private Transform descriptionPanel;
@@ -32,31 +32,36 @@ public class ShopUI : MonoBehaviour
 
     private void LoadShopObjects()
     {
-        shopObjects.Clear(); 
+        //shopObjectsList.Clear(); 
 
-        foreach (Transform child in parentObject)
-        {
-            ShopObject shopItem = child.GetComponent<ShopObject>(); 
-            if (shopItem != null)
-            {
-                shopObjects.Add(shopItem);
-            }
-        }
+        //foreach (Transform child in parentObject)
+        //{
+        //    ShopObject shopItem = child.GetComponent<ShopObject>(); 
+        //    if (shopItem != null)
+        //    {
+        //        shopObjectsList.Add(shopItem);
+        //    }
+        //}
+    }
+
+    public void AddShopObjectToList(ShopObject newShopObject)
+    {
+        shopObjectsList.Add(newShopObject);
     }
     public void RefreshShopButtons()
     {
-        foreach (var shopObject in shopObjects)
+        foreach (var shopObject in shopObjectsList)
         {
             shopObject.RefreshPurchaseButton();
         } 
        
     }
 
-    public void ShowObjectDescription(int objectId)
+    public void ShowBuildingDescription(int objectId)
     {
 
         descriptionPanel.gameObject.SetActive(true);
-        ObjectData objectData = BuyingSystem.instance.GetObjectData(objectId);
+        ObjectData objectData = BuyingSystem.instance.GetBuildingData(objectId);
         titleText.text = objectData.Name;
         priceText.text = "";
 
@@ -68,7 +73,22 @@ public class ShopUI : MonoBehaviour
             priceText.text += "\n";
         }
     }
+    public void ShowUnitDescription(int objectId)
+    {
 
+        descriptionPanel.gameObject.SetActive(true);
+        UnitStats unitStats = BuyingSystem.instance.GetUnitStats(objectId);
+        titleText.text = unitStats.Name;
+        priceText.text = "";
+
+        foreach (var priceData in unitStats.objectPrices)
+        {
+            priceText.text += priceData.priceType.ToString();
+            priceText.text += " ";
+            priceText.text += priceData.priceValue.ToString();
+            priceText.text += "\n";
+        }
+    }
     public void ClearPanelDescription()
     {
         titleText.text = "";

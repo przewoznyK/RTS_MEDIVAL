@@ -88,8 +88,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Controls\CubemapControl.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\ShaderGraphShortcuts.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Manipulators\ResizeSideHandle.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Procedural\Shape\RoundedRectangleNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Range\MaximumNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Procedural\Shape\RoundedRectangleNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Generation\Targets\Canvas\CanvasSubTarget.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Trigonometry\DegreesToRadiansNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Input\CustomInterpolatorNode.cs" />
@@ -496,7 +496,6 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Graphs\Texture2DArrayMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\ViewModels\BlackboardCategoryViewModel.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Serialization\SerializationExtensions.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Interfaces\IMayRequireVertexSkinning.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Generation\GraphCode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Graphs\BooleanMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\AssemblyInfo.cs" />
@@ -508,6 +507,7 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Generation\TargetResources\FieldDependencies.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Input\Scene\ObjectNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Graphs\GroupData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Interfaces\IMayRequireVertexSkinning.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Util\MessageManager.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Inspector\ShaderGraphHeatmapValuesEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Implementation\SlotType.cs" />
