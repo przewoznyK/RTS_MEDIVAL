@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IActiveClickable
 {
-
-    //[SerializeField] private NavMeshAgent agent;
-    //[SerializeField] private Animator animator;
+    [SerializeField] private UnitMovement unitMovement;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Animator animator;
     //[SerializeField] private GameObject activator;
     //private bool isActive;
     void Start()
@@ -13,11 +13,20 @@ public class Unit : MonoBehaviour
         UnitSelections.Instance.unitList.Add(this.gameObject);
   //      isActive = false;
     }
+    public void ActiveObject()
+    {
+        unitMovement.enabled = true;
+    }
 
     private void OnDestroy()
     {
         UnitSelections.Instance.unitList.Remove(this.gameObject);
     }
+    private void Update()
+    {
+        animator.SetBool("IsWalking", agent.velocity.magnitude > 0.01f);
+    }
+
     //void Update()
     //{
 

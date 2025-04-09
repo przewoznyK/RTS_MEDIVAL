@@ -3342,7 +3342,7 @@ GameObject:
   - component: {fileID: 7044942321051070215}
   m_Layer: 3
   m_Name: Warrior_Female
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3469,6 +3469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitMovement: {fileID: 7044942321051070215}
+  agent: {fileID: 3326141731194661471}
+  animator: {fileID: 7057890858436261310}
 --- !u!114 &7044942321051070215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3483,9 +3486,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 3326141731194661471}
   animator: {fileID: 7057890858436261310}
+  unitGatheringResources: {fileID: 0}
+  startGatheringDistance: 0
   ground:
     serializedVersion: 2
     m_Bits: 64
+  canGatheringResources: 0
+  canGatheringWood: 0
+  canGatheringStone: 0
+  stoneResourceMask:
+    serializedVersion: 2
+    m_Bits: 0
+  woodResourceMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isMovingToResources: 0
 --- !u!1 &4755353798555549978
 GameObject:
   m_ObjectHideFlags: 0

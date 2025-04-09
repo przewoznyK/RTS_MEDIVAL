@@ -9,17 +9,13 @@ public class PlaceUnit : MonoBehaviour
     {
         instance = this;
     }
-    internal void StartProcess(int objectId, Vector3 position)
-    {
-        SpawnUnit(objectId, position);
-    }
 
-    public void SpawnUnit(int id, Vector3 position)
+    public void SpawnUnit(int id, Vector3 startPosition, Vector3 meetingPosition)
     {
         GameObject prefab = unitsDatabase.GetPrefabByID(id);
         if (prefab != null)
         {
-            Instantiate(prefab, position, Quaternion.identity);
+            Instantiate(prefab, startPosition, Quaternion.identity);
         }
         else
         {

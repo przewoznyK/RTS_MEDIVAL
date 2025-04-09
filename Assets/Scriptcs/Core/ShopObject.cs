@@ -30,8 +30,6 @@ public class ShopObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             button.enabled = false;
             image.color = Color.red;
         }
-        if (isUnit)
-            Debug.Log("MOGE KUPIC");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

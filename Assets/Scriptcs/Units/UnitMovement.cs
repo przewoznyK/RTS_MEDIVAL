@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class UnitMovement : MonoBehaviour
 {
-    Camera myCam;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
     [SerializeField] private UnitGatheringResources unitGatheringResources;
@@ -20,7 +19,6 @@ public class UnitMovement : MonoBehaviour
     private ResourceTypesEnum newCurrentGatheringResource;
     void Start()
     {
-        myCam = Camera.main;
         resourcePosition = Vector3.zero;
     }
 
@@ -34,13 +32,12 @@ public class UnitMovement : MonoBehaviour
         {
             UnitGoingToGatcheringResource();
         }
-        animator.SetBool("IsWalking", agent.velocity.magnitude > 0.01f);
     }
 
     void SetUnitDestination()
     {
         RaycastHit hit;
-        Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(canGatheringResources)
         {
             if (canGatheringWood && Physics.Raycast(ray, out hit, Mathf.Infinity, woodResourceMask))
@@ -87,7 +84,7 @@ public class UnitMovement : MonoBehaviour
             unitGatheringResources.enabled = true;
             unitGatheringResources.SetCurrentGatheringTypeEnum(ResourceTypesEnum.wood);
             unitGatheringResources.StartGathering();
-            animator.SetBool("IsWalking", false);
+         //   animator.SetBool("IsWalking", false);
             transform.GetChild(0).gameObject.SetActive(false);
             resourcePosition = Vector3.zero;
             isMovingToResources = false;

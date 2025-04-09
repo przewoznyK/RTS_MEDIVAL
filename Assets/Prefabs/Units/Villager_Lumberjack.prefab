@@ -5342,7 +5342,7 @@ GameObject:
   - component: {fileID: 7027751971974583375}
   m_Layer: 3
   m_Name: Villager_Lumberjack
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5469,6 +5469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitMovement: {fileID: 5695180655131979924}
+  agent: {fileID: 5616669603834715738}
+  animator: {fileID: 8647829426033591064}
 --- !u!114 &5695180655131979924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5481,12 +5484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a439b7823ebb7574ca5028f1581bd207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats:
-    <ID>k__BackingField: 0
-    <Name>k__BackingField: 
-    <unitType>k__BackingField: 0
-    <Prefab>k__BackingField: {fileID: 0}
-    objectPrices: []
   agent: {fileID: 5616669603834715738}
   animator: {fileID: 8647829426033591064}
   unitGatheringResources: {fileID: 7027751971974583375}
@@ -5503,6 +5500,7 @@ MonoBehaviour:
   woodResourceMask:
     serializedVersion: 2
     m_Bits: 128
+  isMovingToResources: 0
 --- !u!114 &7027751971974583375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5520,8 +5518,10 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <unitType>k__BackingField: 0
     <Prefab>k__BackingField: {fileID: 0}
+    <Sprite>k__BackingField: {fileID: 0}
     objectPrices: []
   animator: {fileID: 8647829426033591064}
+  currentGatherignResourceEnum: 0
 --- !u!1 &6413048137226597162
 GameObject:
   m_ObjectHideFlags: 0

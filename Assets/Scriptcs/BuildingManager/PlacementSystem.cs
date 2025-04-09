@@ -49,7 +49,8 @@ public class PlacementSystem : MonoBehaviour
                                            furnitureData,
                                            objectPlacer,
                                            buyingSystem);
-
+        
+        inputManager.onClicked -= inputManager.ActiveClickableObject;
         inputManager.onClicked += PlaceStructure;
         inputManager.onExit += StopPlacement;
     }
@@ -93,6 +94,7 @@ public class PlacementSystem : MonoBehaviour
         buildingState.EndState();
         inputManager.onClicked -= PlaceStructure;
         inputManager.onExit -= StopPlacement;
+        inputManager.onClicked += inputManager.ActiveClickableObject;
         lastDetectedPosition = Vector3Int.zero;
     }
 }

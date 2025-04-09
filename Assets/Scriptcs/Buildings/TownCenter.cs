@@ -1,27 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TownCenter : MonoBehaviour, IActivatable, IPointerClickHandler
+public class TownCenter : MonoBehaviour
 {
     [SerializeField] private string buildingName;
     [SerializeField] private Vector3 startUnitPosition;
     [SerializeField] private UnitTypeEnum[] unitsToBuy;
-    public void Activate()
-    {
-        this.enabled = true;
-        Debug.Log("LEC");
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("KLIKAM");
-        
-    }
 
     void OnMouseDown()
     {
         Debug.Log("Klikniêto obiekt!");
-        BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingName, unitsToBuy, startUnitPosition);
+    //    BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingName, unitsToBuy, startUnitPosition);
 
     }
 

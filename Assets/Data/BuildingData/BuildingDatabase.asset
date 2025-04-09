@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildingDatabase
   m_EditorClassIdentifier: 
   objectsData:
-  - <Name>k__BackingField: TownCenter_FirstAge_Level1
+  - <Name>k__BackingField: Town Center (First Age)
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 6, y: 6}
     <Prefab>k__BackingField: {fileID: 1657932571853216205, guid: 0b154887d31aba043b55486524109625, type: 3}

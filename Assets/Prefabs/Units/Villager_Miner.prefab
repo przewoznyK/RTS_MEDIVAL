@@ -2057,7 +2057,7 @@ GameObject:
   - component: {fileID: 1267450680234034259}
   m_Layer: 3
   m_Name: Villager_Miner
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2184,6 +2184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitMovement: {fileID: 6998482385729926942}
+  agent: {fileID: 6782051758704924158}
+  animator: {fileID: 5223404914688420274}
 --- !u!114 &6998482385729926942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,7 +2199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a439b7823ebb7574ca5028f1581bd207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatisitcs: {fileID: 11400000, guid: 472c9dcfb11ee3a4ea68c041de2c2b94, type: 2}
   agent: {fileID: 6782051758704924158}
   animator: {fileID: 5223404914688420274}
   unitGatheringResources: {fileID: 1267450680234034259}
@@ -2205,9 +2207,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canGatheringResources: 1
-  rocksResource:
+  canGatheringWood: 0
+  canGatheringStone: 0
+  stoneResourceMask:
     serializedVersion: 2
     m_Bits: 256
+  woodResourceMask:
+    serializedVersion: 2
+    m_Bits: 128
+  isMovingToResources: 0
 --- !u!114 &1267450680234034259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,8 +2228,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f428e0ffcbacd084598f6380be11ddd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStatisitcs: {fileID: 11400000, guid: 472c9dcfb11ee3a4ea68c041de2c2b94, type: 2}
+  unitStats:
+    <ID>k__BackingField: 0
+    <Name>k__BackingField: 
+    <unitType>k__BackingField: 0
+    <Prefab>k__BackingField: {fileID: 0}
+    <Sprite>k__BackingField: {fileID: 0}
+    objectPrices: []
   animator: {fileID: 5223404914688420274}
+  currentGatherignResourceEnum: 0
 --- !u!1 &3429413223091474014
 GameObject:
   m_ObjectHideFlags: 0

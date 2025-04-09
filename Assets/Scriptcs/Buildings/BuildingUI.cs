@@ -8,6 +8,7 @@ public class BuildingUI : MonoBehaviour
     [Header("Building")]
     [SerializeField] private Transform buildingPanel;
     [SerializeField] private TextMeshProUGUI buildingTitle;
+    [SerializeField] private Transform meetingPoint;
     [Header("Units")]
     [SerializeField] private UnitsDatabaseSO unitsDatabase;
     [Header("Unit Buy Buttons")]
@@ -17,12 +18,12 @@ public class BuildingUI : MonoBehaviour
     {
         instance = this;
     }
-    public void ActiveBuildingPanelAndPrepareButtons(string buildingName, UnitTypeEnum[] units, Vector3 startUnitPosition)
+    public void ActiveBuildingPanelAndPrepareButtons(ObjectData buildingData, UnitTypeEnum[] unitsToBuy, Vector3 meetingPointPosition)
     {
-        
-        for (int i = 0; i < units.Length; i++)
+
+        for (int i = 0; i < unitsToBuy.Length; i++)
         {
-            UnitStats unitStats = unitsDatabase.GetUnitStatsByUnitType(units[i]);
+            UnitStats unitStats = unitsDatabase.GetUnitStatsByUnitType(unitsToBuy[i]);
             Button currentButton = unitBuyButton[i];
 
 
@@ -31,15 +32,26 @@ public class BuildingUI : MonoBehaviour
             currentButton.image.sprite = unitStats.Sprite;
         }
 
-     
-        buildingTitle.text = buildingName;
+
+        buildingTitle.text = buildingData.Name;
         buildingPanel.gameObject.SetActive(true);
-        currentStartUnitPosition = startUnitPosition;
+
+        meetingPoint.transform.position = meetingPointPosition;
+        meetingPoint.gameObject.SetActive(true);
+        //  currentStartUnitPosition = startUnitPosition;
     }
 
+    public void CloseBuildingPanel()
+    {
+        buildingPanel.gameObject.SetActive(false);
+        meetingPoint.gameObject.SetActive(false);
+    }
     public void StartBuyingUnitProcess(int unitID)
     {
-        BuyingSystem.instance.BuyUnit(unitID, currentStartUnitPosition);
+        BuyingSystem.instance.BuyUnit(unitID, currentStartUnitPosition, meetingPoint.transform.position);
     }
-    
+    public void ChangeMeetingPointPosition(Vector3 position)
+    {
+        meetingPoint.transform.position = position;
+    }
 }
