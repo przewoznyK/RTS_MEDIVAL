@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopUI : MonoBehaviour
 {
     public static ShopUI instance;
+    [SerializeField] private GameObject sidePanel;
     [SerializeField] private Transform parentObject;
     public List<ShopObject> shopObjectsList = new List<ShopObject>();
 
@@ -17,36 +18,24 @@ public class ShopUI : MonoBehaviour
     {
         instance = this;
     }
-    void Start()
-    {
-        LoadShopObjects();
-    }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            RefreshShopButtons();
-        }
-    }
 
     private void LoadShopObjects()
     {
-        //shopObjectsList.Clear(); 
+        shopObjectsList.Clear();
 
-        //foreach (Transform child in parentObject)
-        //{
-        //    ShopObject shopItem = child.GetComponent<ShopObject>(); 
-        //    if (shopItem != null)
-        //    {
-        //        shopObjectsList.Add(shopItem);
-        //    }
-        //}
+        foreach (Transform child in parentObject)
+        {
+            ShopObject shopItem = child.GetComponent<ShopObject>();
+            if (shopItem != null)
+            {
+                shopObjectsList.Add(shopItem);
+            }
+        }
     }
 
     public void AddShopObjectToList(ShopObject newShopObject)
     {
-        shopObjectsList.Add(newShopObject);
+       // shopObjectsList.Add(newShopObject);
     }
     public void RefreshShopButtons()
     {
@@ -95,4 +84,19 @@ public class ShopUI : MonoBehaviour
         priceText.text = "";
         descriptionPanel.gameObject.SetActive(false);
     }
+
+    public void SetActivePanel(bool value)
+    {
+        if(value == true)
+        {
+            LoadShopObjects();
+            sidePanel.SetActive(true);
+            RefreshShopButtons();
+        }
+        else 
+            sidePanel.SetActive(false);
+
+
+    }
+
 }

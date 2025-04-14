@@ -70,8 +70,8 @@
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Stripping\IStripper.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\RenderGraph\Compiler\FixedAttachmentArray.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Debugging\Prefabs\Scripts\DebugUIHandlerGroup.cs" />
-    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Lighting\ProbeVolume\ProbeVolumeAsset.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\RenderPipeline\RenderPipelineGlobalSettings.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Lighting\ProbeVolume\ProbeVolumeAsset.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Utilities\BitArray.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Debugging\Prefabs\Scripts\DebugUIHandlerValueTuple.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core\Runtime\Common\DynamicResolutionHandler.cs" />

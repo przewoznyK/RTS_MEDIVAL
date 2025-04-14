@@ -15,7 +15,10 @@ public class PlaceUnit : MonoBehaviour
         GameObject prefab = unitsDatabase.GetPrefabByID(id);
         if (prefab != null)
         {
-            Instantiate(prefab, startPosition, Quaternion.identity);
+            GameObject newUnit = Instantiate(prefab, startPosition, Quaternion.identity);
+            newUnit.GetComponent<UnitMovement>().GoMeetingPosition(meetingPosition);
+            UnitStats newUnitStats = unitsDatabase.GetUnitStatsByID(id);
+            newUnit.GetComponent<Unit>().SetUnitName(newUnitStats.Name);
         }
         else
         {

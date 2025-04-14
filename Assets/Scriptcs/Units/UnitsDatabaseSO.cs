@@ -7,6 +7,7 @@ public enum UnitTypeEnum
 {
     lumberjack,
     miner,
+    builder,
     warrior
 }
 
@@ -47,9 +48,6 @@ public class UnitStats
     [field: SerializeField] public Sprite Sprite { get; private set; }
 
     [field: SerializeField] public List<ObjectPrices> objectPrices = new List<ObjectPrices>();
-
-
-
 
     internal ResourceTypesEnum GetCurrentGatheringeResource()
     {

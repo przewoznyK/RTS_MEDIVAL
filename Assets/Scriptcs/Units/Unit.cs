@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +7,7 @@ public class Unit : MonoBehaviour, IActiveClickable
     [SerializeField] private UnitMovement unitMovement;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
+    [SerializeField] private string unitName;
     //[SerializeField] private GameObject activator;
     //private bool isActive;
     void Start()
@@ -16,6 +18,7 @@ public class Unit : MonoBehaviour, IActiveClickable
     public void ActiveObject()
     {
         unitMovement.enabled = true;
+        UnitUI.instance.ActiveUnitPanelAndPrepareButtons(unitName);
     }
 
     private void OnDestroy()
@@ -25,6 +28,11 @@ public class Unit : MonoBehaviour, IActiveClickable
     private void Update()
     {
         animator.SetBool("IsWalking", agent.velocity.magnitude > 0.01f);
+    }
+
+    internal void SetUnitName(string name)
+    {
+        unitName = name;
     }
 
     //void Update()

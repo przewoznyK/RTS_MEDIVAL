@@ -9,10 +9,6 @@ public class ShopObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private Button button;
     [SerializeField] private int id;
     [SerializeField] private bool isUnit;
-    private void Start()
-    {
-        ShopUI.instance.shopObjectsList.Add(this);
-    }
     public void RefreshPurchaseButton()
     {
         bool canBuy;

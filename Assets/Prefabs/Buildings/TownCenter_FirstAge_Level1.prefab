@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2322116727180636221}
   - component: {fileID: 4349143246962521802}
-  - component: {fileID: -98121496237864718}
-  m_Layer: 0
+  - component: {fileID: 6107063946030041131}
+  m_Layer: 3
   m_Name: TownCenter_FirstAge_Level1
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,13 +49,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6, y: 3, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-98121496237864718
+--- !u!114 &6107063946030041131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,11 +64,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657932571853216205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d80b1bfb6f2d94ca6b5018dd2deed4, type: 3}
+  m_Script: {fileID: 11500000, guid: 395ac72618f4c7142bdb98f2e35cae0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingName: Town Center
-  startUnitPosition: {x: 3, y: 0, z: 3}
+  inputManager: {fileID: 0}
+  buildingID: 0
+  unitsToBuy: 0000000001000000
 --- !u!1 &7362514756282754313
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ GameObject:
   - component: {fileID: 8928054928565215287}
   - component: {fileID: 1811290064054413047}
   - component: {fileID: 4077711629438955938}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

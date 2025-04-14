@@ -4,7 +4,7 @@ public class Building : MonoBehaviour, IActiveClickable
 {
     [SerializeField] private int buildingID;
     [SerializeField] private UnitTypeEnum[] unitsToBuy;
-    [SerializeField] private InputManager inputManager;
+
     Vector3 meetingPoint;
     ObjectData buildingData;
 
@@ -15,14 +15,14 @@ public class Building : MonoBehaviour, IActiveClickable
     public void ActiveObject()
     {
         BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingData, unitsToBuy, meetingPoint);
-        inputManager.onClicked -= inputManager.ActiveClickableObject;
-        inputManager.onClicked += ClosePanel;
-        inputManager.onExit += SetMeetingPoint;
+        InputManager.instance.onClicked -= InputManager.instance.ActiveClickableObject;
+        InputManager.instance.onClicked += ClosePanel;
+        InputManager.instance.onExit += SetMeetingPoint;
     }
 
     public void SetMeetingPoint()
     {
-        meetingPoint = inputManager.GetSelectedMapPosition();
+        meetingPoint = InputManager.instance.GetSelectedMapPosition();
         BuildingUI.instance.ChangeMeetingPointPosition(meetingPoint);
     }
 
@@ -30,11 +30,11 @@ public class Building : MonoBehaviour, IActiveClickable
 
     public void ClosePanel()
     {
-        if(!inputManager.IsPointerOverUI())
+        if(!InputManager.instance.IsPointerOverUI())
         {
             BuildingUI.instance.CloseBuildingPanel();
-            inputManager.onClicked -= ClosePanel;
-            inputManager.onClicked += inputManager.ActiveClickableObject;
+            InputManager.instance.onClicked -= ClosePanel;
+            InputManager.instance.onClicked += InputManager.instance.ActiveClickableObject;
         }
     }
 

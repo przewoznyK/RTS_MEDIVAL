@@ -2206,6 +2206,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
+  targetLocation: {x: 10, y: 0, z: 0}
   canGatheringResources: 1
   canGatheringWood: 0
   canGatheringStone: 0

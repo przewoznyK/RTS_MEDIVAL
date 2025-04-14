@@ -88,8 +88,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Controls\CubemapControl.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\ShaderGraphShortcuts.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Manipulators\ResizeSideHandle.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Range\MaximumNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Procedural\Shape\RoundedRectangleNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Range\MaximumNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Generation\Targets\Canvas\CanvasSubTarget.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Trigonometry\DegreesToRadiansNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Input\CustomInterpolatorNode.cs" />

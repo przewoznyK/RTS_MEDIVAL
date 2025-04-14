@@ -17,10 +17,10 @@ public class UIManager : MonoBehaviour
 
 
     }
-    private void Start()
-    {
-        shopUI.RefreshShopButtons();
-    }
+    //private void Start()
+    //{
+    //    shopUI.RefreshShopButtons();
+    //}
 
     public void UpdateUICurrentAmountWoodResource(int newValue)
     {
@@ -31,10 +31,10 @@ public class UIManager : MonoBehaviour
         currentAmountStoneResourceTextUI.text = newValue.ToString();
     }
 
-    public void updateShopUI()
-    {
-        shopUI.RefreshShopButtons();
-    }
+    //public void updateShopUI()
+    //{
+    //    shopUI.RefreshShopButtons();
+    //}
 
 
 }

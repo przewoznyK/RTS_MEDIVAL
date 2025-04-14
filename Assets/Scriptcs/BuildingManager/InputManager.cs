@@ -4,11 +4,16 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
+    public static InputManager instance;
     private Vector3 lastPosition;
 
     [SerializeField] private LayerMask placementLayermask;
     [SerializeField] private LayerMask clickable;
     public event Action onClicked, onExit;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         onClicked += ActiveClickableObject;
@@ -43,12 +48,14 @@ public class InputManager : MonoBehaviour
     public void ActiveClickableObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        ShopUI.instance.SetActivePanel(false);
+        UnitUI.instance.CloseUnitPanel();
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, clickable))
         {
             // Building
-            if (!hit.collider.gameObject.CompareTag("Unit"))
+            if (hit.collider.gameObject.CompareTag("Building"))
             {
+                UnitUI.instance.CloseUnitPanel();
                 hit.collider.GetComponent<IActiveClickable>().ActiveObject();
             }
             // Unit

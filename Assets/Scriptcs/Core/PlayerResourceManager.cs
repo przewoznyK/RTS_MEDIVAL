@@ -6,7 +6,8 @@ public enum ResourceTypesEnum
 {
     none,
     wood,
-    stone
+    stone,
+    building
 }
 
 [Serializable]
@@ -40,8 +41,8 @@ public class PlayerResourceManager : MonoBehaviour
         AddResource(ResourceTypesEnum.wood, startWoodResource);
         AddResource(ResourceTypesEnum.stone, startStoneResource);
 
-        UpdateResourcesInUI(ResourceTypesEnum.wood, startWoodResource);
-        UpdateResourcesInUI(ResourceTypesEnum.stone, startStoneResource);
+  //      UpdateResourcesInUI(ResourceTypesEnum.wood, startWoodResource);
+     //   UpdateResourcesInUI(ResourceTypesEnum.stone, startStoneResource);
     }
 
 
@@ -104,6 +105,6 @@ public class PlayerResourceManager : MonoBehaviour
             default:
                 break;
         }
-        UIManager.instance.updateShopUI();
+        ShopUI.instance.RefreshShopButtons();
     }
 }
