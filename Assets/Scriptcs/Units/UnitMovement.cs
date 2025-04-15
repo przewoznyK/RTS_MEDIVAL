@@ -10,6 +10,7 @@ public class UnitMovement : MonoBehaviour
     [SerializeField] private float startGatheringDistance;
     [SerializeField] private LayerMask ground;
     [SerializeField] private Vector3 targetLocation;
+
     [Header("GatheringResources")]
     [SerializeField] private bool canGatheringResources;
     [SerializeField] private bool canGatheringWood;
@@ -31,10 +32,12 @@ public class UnitMovement : MonoBehaviour
     {
         if (isBuilder)
             ShopUI.instance.SetActivePanel(true);
+        else
+            ShopUI.instance.SetActivePanel(false);
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && PreviewSystem.instance.isOnPreview == false)
         {
             SetUnitDestination();
         }
@@ -44,7 +47,7 @@ public class UnitMovement : MonoBehaviour
         }
     }
 
-    void SetUnitDestination()
+    public void SetUnitDestination()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -118,6 +121,7 @@ public class UnitMovement : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             resourcePosition = Vector3.zero;
             isMovingToResources = false;
+            Debug.Log("ZACZYNAMY BUDOWAC");
             this.enabled = false;
 
         }
@@ -127,5 +131,20 @@ public class UnitMovement : MonoBehaviour
     {
         agent.SetDestination(meetingPosition);
         this.enabled = false;
+    }
+
+    internal void GoBuildingObject(GameObject newObject)
+    {
+        Debug.Log("START BUILDING");
+        resourcePosition = newObject.transform.position;
+        agent.SetDestination(newObject.transform.position);
+        newCurrentGatheringResource = ResourceTypesEnum.building;
+        isMovingToResources = true;
+        agent.stoppingDistance = startGatheringDistance;
+        var component = newObject.gameObject.GetComponent<BuildingToBulit>();
+        if (component != null)
+        {
+            unitGatheringResources.SetBuildingToBuild(component);
+        }
     }
 }

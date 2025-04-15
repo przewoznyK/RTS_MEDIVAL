@@ -7,9 +7,9 @@ public class UnitGatheringResources : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private ResourceTypesEnum currentGatherignResourceEnum;
     [SerializeField] private BuildingToBulit buildingToBulit;
+
     private void OnEnable()
     {
-
         animator.SetBool("IsMining", true);
         //if (unitStats.GetCurrentGatheringeResource() == ResourceTypesEnum.wood)
         //    StartCoroutine(GatheringWoodCycle());
@@ -29,7 +29,8 @@ public class UnitGatheringResources : MonoBehaviour
                 StartCoroutine(GatheringStoneCycle());
                 break;
             case ResourceTypesEnum.building:
-                Debug.Log(2);
+                animator.SetBool("IsMining", true);
+                buildingToBulit.AddToActiveBuildersList(this);
                 StartCoroutine(BuildingCycle());
                 break;
 
@@ -40,10 +41,6 @@ public class UnitGatheringResources : MonoBehaviour
     {
         animator.SetBool("IsMining", false);
         StopAllCoroutines();
-    }
-    void Update()
-    {
-
     }
     IEnumerator GatheringWoodCycle()
     {
@@ -61,8 +58,10 @@ public class UnitGatheringResources : MonoBehaviour
 
     IEnumerator BuildingCycle()
     {
+
         yield return new WaitForSeconds(3f);
-        Debug.Log(3);
+        if (!buildingToBulit)
+            yield break;
         buildingToBulit.WorkOnBuilding(3);
         StartCoroutine(BuildingCycle());
     }
@@ -77,4 +76,6 @@ public class UnitGatheringResources : MonoBehaviour
     {
         buildingToBulit = newBuildingToBulit;
     }
+
+    
 }

@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class PreviewSystem : MonoBehaviour
 {
+    public static PreviewSystem instance;
     [SerializeField] private float previewYOffset = 0.06f;
     [SerializeField] private GameObject parentCursorIndicator;
     [SerializeField] private Renderer coursorIndicatorRenderer;
@@ -10,14 +12,19 @@ public class PreviewSystem : MonoBehaviour
     [SerializeField] private Material previewMaterialPrefab;
     private Material previewMaterialInstance;
 
+    public bool isOnPreview { get; private set; }
+
     private void Start()
     {
+        instance = this;
         previewMaterialInstance = new Material(previewMaterialPrefab);
         parentCursorIndicator.SetActive(false);
     }
 
     public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
     {
+        CancelInvoke(nameof(TurnOffPreviewFlag));
+        isOnPreview = true;
         previewObject = Instantiate(prefab);
         PreparePreview(previewObject);
         PrepareCursour(size);
@@ -56,11 +63,16 @@ public class PreviewSystem : MonoBehaviour
 
     public void StopSchowingPreview()
     {
+        Debug.Log("KONIEC");
         parentCursorIndicator.SetActive(false);
         if(previewObject != null)
             Destroy(previewObject);
+        Invoke("TurnOffPreviewFlag", 0.5f);
     }
-
+    void TurnOffPreviewFlag()
+    {
+        isOnPreview = false;
+    }
     public void UpdatePosition(Vector3 position, bool validity)
     {
         if (previewObject != null)

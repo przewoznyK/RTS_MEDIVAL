@@ -1,23 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingToBulit : MonoBehaviour
 {
     [SerializeField] private GameObject finishBuilding;
     [SerializeField] private int timeToBuilt;
-   
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    List<UnitGatheringResources> unitGatheringResourcesList = new();
     public void SetFinishBuilding(GameObject builtToCreate)
     {
         finishBuilding = builtToCreate;
@@ -26,6 +15,12 @@ public class BuildingToBulit : MonoBehaviour
     internal void EndProcess()
     {
         Instantiate(finishBuilding, transform.position, Quaternion.identity);
+        foreach (var unitGathering in unitGatheringResourcesList)
+        {
+
+            unitGathering.enabled = false;
+        }
+        Destroy(gameObject);
     }
 
     public void WorkOnBuilding(int value)
@@ -38,5 +33,10 @@ public class BuildingToBulit : MonoBehaviour
         {
             EndProcess();
         }
+    }
+
+    public void AddToActiveBuildersList(UnitGatheringResources unitGatheringResources)
+    {
+        unitGatheringResourcesList.Add(unitGatheringResources);
     }
 }

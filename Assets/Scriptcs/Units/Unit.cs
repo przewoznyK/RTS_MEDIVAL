@@ -8,6 +8,8 @@ public class Unit : MonoBehaviour, IActiveClickable
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
     [SerializeField] private string unitName;
+    [SerializeField] private UnitTypeEnum unitType;
+
     //[SerializeField] private GameObject activator;
     //private bool isActive;
     void Start()
@@ -34,7 +36,14 @@ public class Unit : MonoBehaviour, IActiveClickable
     {
         unitName = name;
     }
-
+    public UnitTypeEnum GetUnitType()
+    {
+        return unitType;
+    }
+    public void SetUnitType(UnitTypeEnum newUnitType)
+    {
+        unitType = newUnitType;
+    }
     //void Update()
     //{
 

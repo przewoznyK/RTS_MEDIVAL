@@ -5,6 +5,7 @@ public class UnitSelections : MonoBehaviour
 {
     public List<GameObject> unitList = new();
     public List<GameObject> unitsSelected = new();
+    public  List<Unit> selectedUnitsTypeList = new();
 
     public static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
@@ -66,8 +67,18 @@ public class UnitSelections : MonoBehaviour
         unitsSelected.Clear();
     }
 
-    public void Deselect(GameObject unitToDeselect)
+    public List<Unit> GetSelectedUnitsType(UnitTypeEnum unitType)
     {
+        selectedUnitsTypeList.Clear();
+        foreach (var unit in unitsSelected)
+        {
+            Unit checkUnit = unit.GetComponent<Unit>();
+            if (checkUnit.GetUnitType() == unitType)
+            {
+                selectedUnitsTypeList.Add(checkUnit);
+            }
+        }
 
+        return selectedUnitsTypeList;
     }
 }

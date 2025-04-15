@@ -48,18 +48,10 @@ public class InputManager : MonoBehaviour
     public void ActiveClickableObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        ShopUI.instance.SetActivePanel(false);
-        UnitUI.instance.CloseUnitPanel();
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, clickable))
         {
-            // Building
-            if (hit.collider.gameObject.CompareTag("Building"))
-            {
-                UnitUI.instance.CloseUnitPanel();
-                hit.collider.GetComponent<IActiveClickable>().ActiveObject();
-            }
             // Unit
-            else
+            if (hit.collider.gameObject.CompareTag("Unit"))
             {
                 // if we hit a clickable object
                 if (Input.GetKey(KeyCode.LeftShift))
@@ -73,9 +65,18 @@ public class InputManager : MonoBehaviour
                     UnitSelections.Instance.ClickSelect(hit.collider.gameObject);
                 }
             }
+            // Building
+            else
+            {
+                ShopUI.instance.SetActivePanel(false);
+                UnitUI.instance.CloseUnitPanel();
+                hit.collider.GetComponent<IActiveClickable>().ActiveObject();
+            }
         }
-        else
+        else if(!IsPointerOverUI())
         {
+            ShopUI.instance.SetActivePanel(false);
+            UnitUI.instance.CloseUnitPanel();
             // if we didn't && we're not shift clicking
             if (!Input.GetKey(KeyCode.LeftShift))
             {

@@ -64,7 +64,6 @@ public class BuyingSystem : MonoBehaviour
     {
         // Convert Value (in shop object count start on 1 beacuse 0 is reserved to floor)
         saveIdToEndPlaceObject = objectId -= 1;
-
         placementSystem.StartPlacement(saveIdToEndPlaceObject);
     }
 
