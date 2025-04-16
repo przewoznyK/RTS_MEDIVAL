@@ -10234,6 +10234,23 @@ Transform:
   - {fileID: 2066236078}
   m_Father: {fileID: 302170583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1491815710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4697912027264666094, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+  m_PrefabInstance: {fileID: 1894774957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1491815717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491815710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974636be4f05e4643b4be2e9926bcf74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512627157
 GameObject:
   m_ObjectHideFlags: 0
@@ -12521,7 +12538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4697912027264666094, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5780613892030050452, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12563,6 +12580,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6329486664085795850, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7057890858436261310, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
       propertyPath: m_Controller
       value: 
@@ -12570,7 +12591,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4697912027264666094, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1491815717}
   m_SourcePrefab: {fileID: 100100000, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
 --- !u!1 &1900433724
 GameObject:

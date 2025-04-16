@@ -2,26 +2,27 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Unit : MonoBehaviour, IActiveClickable
+public abstract class Unit : MonoBehaviour, IActiveClickable
 {
-    [SerializeField] private UnitMovement unitMovement;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Animator animator;
-    [SerializeField] private string unitName;
-    [SerializeField] private UnitTypeEnum unitType;
+    [SerializeField] protected UnitMovement unitMovement;
+    [SerializeField] protected NavMeshAgent agent;
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected string unitName;
+    [SerializeField] protected UnitTypeEnum unitType;
 
     //[SerializeField] private GameObject activator;
     //private bool isActive;
     void Start()
     {
         UnitSelections.Instance.unitList.Add(this.gameObject);
-  //      isActive = false;
+        //      isActive = false;
     }
     public void ActiveObject()
     {
         unitMovement.enabled = true;
         UnitUI.instance.ActiveUnitPanelAndPrepareButtons(unitName);
     }
+
 
     private void OnDestroy()
     {

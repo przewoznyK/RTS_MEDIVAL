@@ -15,10 +15,10 @@ public class ObjectPlacer : MonoBehaviour
         newObject.transform.position = position;
         newObject.GetComponent<BuildingToBulit>().SetFinishBuilding(prefab);
         List<Unit> selectedUnits = unitSelections.GetSelectedUnitsType(UnitTypeEnum.builder);
-        foreach (var unit in selectedUnits)
-        {
-            unit.GetComponent<UnitMovement>().GoBuildingObject(newObject);
-        }
+        //foreach (var unit in selectedUnits)
+        //{
+        //    unit.GetComponent<UnitMovement>().GoBuildingObject(newObject);
+        //}
         //GameObject newObject = Instantiate(prefab);
         //newObject.transform.position = position;
         //if (newObject.TryGetComponent<IActivatable>(out IActivatable activeScript))

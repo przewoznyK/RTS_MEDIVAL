@@ -28,11 +28,11 @@ public class UnitGatheringResources : MonoBehaviour
             case ResourceTypesEnum.stone:
                 StartCoroutine(GatheringStoneCycle());
                 break;
-            case ResourceTypesEnum.building:
-                animator.SetBool("IsMining", true);
-                buildingToBulit.AddToActiveBuildersList(this);
-                StartCoroutine(BuildingCycle());
-                break;
+            //case ResourceTypesEnum.building:
+            //    animator.SetBool("IsMining", true);
+            //    buildingToBulit.AddToActiveBuildersList(this);
+            //    StartCoroutine(BuildingCycle());
+            //    break;
 
         }
     }

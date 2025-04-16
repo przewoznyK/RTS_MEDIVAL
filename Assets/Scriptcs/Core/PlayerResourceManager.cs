@@ -7,7 +7,6 @@ public enum ResourceTypesEnum
     none,
     wood,
     stone,
-    building
 }
 
 [Serializable]
