@@ -2052,8 +2052,6 @@ GameObject:
   - component: {fileID: 5223404914688420274}
   - component: {fileID: 293114072741133974}
   - component: {fileID: 6782051758704924158}
-  - component: {fileID: 5420513401869409351}
-  - component: {fileID: 6998482385729926942}
   - component: {fileID: 1267450680234034259}
   m_Layer: 3
   m_Name: Villager_Miner
@@ -2172,51 +2170,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5420513401869409351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3191591566410275953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitMovement: {fileID: 6998482385729926942}
-  agent: {fileID: 6782051758704924158}
-  animator: {fileID: 5223404914688420274}
---- !u!114 &6998482385729926942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3191591566410275953}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a439b7823ebb7574ca5028f1581bd207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6782051758704924158}
-  animator: {fileID: 5223404914688420274}
-  unitGatheringResources: {fileID: 1267450680234034259}
-  startGatheringDistance: 1.7
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
-  targetLocation: {x: 10, y: 0, z: 0}
-  canGatheringResources: 1
-  canGatheringWood: 0
-  canGatheringStone: 0
-  stoneResourceMask:
-    serializedVersion: 2
-    m_Bits: 256
-  woodResourceMask:
-    serializedVersion: 2
-    m_Bits: 128
-  isMovingToResources: 0
 --- !u!114 &1267450680234034259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2229,13 +2182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f428e0ffcbacd084598f6380be11ddd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats:
-    <ID>k__BackingField: 0
-    <Name>k__BackingField: 
-    <unitType>k__BackingField: 0
-    <Prefab>k__BackingField: {fileID: 0}
-    <Sprite>k__BackingField: {fileID: 0}
-    objectPrices: []
   animator: {fileID: 5223404914688420274}
   currentGatherignResourceEnum: 0
 --- !u!1 &3429413223091474014

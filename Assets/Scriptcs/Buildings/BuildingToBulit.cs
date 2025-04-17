@@ -6,7 +6,7 @@ public class BuildingToBulit : MonoBehaviour
 {
     [SerializeField] private GameObject finishBuilding;
     [SerializeField] private int timeToBuilt;
-    List<UnitGatheringResources> unitGatheringResourcesList = new();
+    List<UnitBuilderBuildObject> unitGatheringResourcesList = new();
     public void SetFinishBuilding(GameObject builtToCreate)
     {
         finishBuilding = builtToCreate;
@@ -35,8 +35,8 @@ public class BuildingToBulit : MonoBehaviour
         }
     }
 
-    public void AddToActiveBuildersList(UnitGatheringResources unitGatheringResources)
+    public void AddToActiveBuildersList(UnitBuilderBuildObject unitBuilderBuildObject)
     {
-        unitGatheringResourcesList.Add(unitGatheringResources);
+        unitGatheringResourcesList.Add(unitBuilderBuildObject);
     }
 }

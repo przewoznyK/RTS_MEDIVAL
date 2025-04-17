@@ -2240,6 +2240,56 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.5932878, y: 0.011829697, z: -0.00000010803342}
     m_Extent: {x: 0.20710585, y: 0.17574799, z: 0.10385999}
   m_DirtyAABB: 0
+--- !u!1 &372486389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+  m_PrefabInstance: {fileID: 6704669001341080371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &372486393 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6782051758704924158, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+  m_PrefabInstance: {fileID: 6704669001341080371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &372486395 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5223404914688420274, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+  m_PrefabInstance: {fileID: 6704669001341080371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &372486397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372486389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde4eace861628498ba3b18a9b1b5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 372486393}
+  animator: {fileID: 372486395}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  targetLocation: {x: 0, y: 0, z: 0}
+--- !u!114 &372486398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372486389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c535fad246c74974c821435f09aa04f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMovement: {fileID: 372486397}
+  agent: {fileID: 372486393}
+  animator: {fileID: 372486395}
+  unitName: 
+  unitType: 0
 --- !u!1 &381808651
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,7 +9946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1434599013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9929,23 +9979,23 @@ MonoBehaviour:
   unitGatheringResources: {fileID: 1434599013}
   startGatheringDistance: 3
   ground:
-    serializedVersion: 2
     m_Bits: 64
   targetLocation: {x: 0, y: 0, z: 0}
   canGatheringResources: 0
   canGatheringWood: 0
   canGatheringStone: 0
   stoneResourceMask:
-    serializedVersion: 2
     m_Bits: 256
   woodResourceMask:
-    serializedVersion: 2
     m_Bits: 128
+  resourcePosition: {x: 0, y: 0, z: 0}
   isMovingToResources: 0
+  newCurrentGatheringResource: 0
   isBuilder: 1
   toBulitMask:
-    serializedVersion: 2
     m_Bits: 2048
+  attackableMask:
+    m_Bits: 0
 --- !u!114 &1434599015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9958,11 +10008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitMovement: {fileID: 1434599014}
-  agent: {fileID: 1434599016}
-  animator: {fileID: 1434599018}
-  unitName: BOB
-  unitType: 2
 --- !u!195 &1434599016
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10251,6 +10296,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974636be4f05e4643b4be2e9926bcf74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitMovement: {fileID: 1491815718}
+  agent: {fileID: 1491815719}
+  animator: {fileID: 1491815721}
+  unitName: Warrior
+  unitType: 3
+--- !u!114 &1491815718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491815710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616b21e5604296b4b9fec716e864c20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1491815719}
+  animator: {fileID: 1491815721}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  targetLocation: {x: 0, y: 0, z: 0}
+--- !u!195 &1491815719 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3326141731194661471, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+  m_PrefabInstance: {fileID: 1894774957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1491815721 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7057890858436261310, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+  m_PrefabInstance: {fileID: 1894774957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1512627157
 GameObject:
   m_ObjectHideFlags: 0
@@ -12588,13 +12666,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b2868f1763ccb06448649624cb32539b, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6329486664085795850, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+    - {fileID: 7044942321051070215, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4697912027264666094, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1491815717}
+    - targetCorrespondingSourceObject: {fileID: 4697912027264666094, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1491815718}
   m_SourcePrefab: {fileID: 100100000, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
 --- !u!1 &1900433724
 GameObject:
@@ -17753,23 +17836,23 @@ MonoBehaviour:
   unitGatheringResources: {fileID: 7838916742487033090}
   startGatheringDistance: 3
   ground:
-    serializedVersion: 2
     m_Bits: 64
   targetLocation: {x: 0, y: 0, z: 0}
   canGatheringResources: 0
   canGatheringWood: 0
   canGatheringStone: 0
   stoneResourceMask:
-    serializedVersion: 2
     m_Bits: 256
   woodResourceMask:
-    serializedVersion: 2
     m_Bits: 128
+  resourcePosition: {x: 0, y: 0, z: 0}
   isMovingToResources: 0
+  newCurrentGatheringResource: 0
   isBuilder: 1
   toBulitMask:
-    serializedVersion: 2
     m_Bits: 2048
+  attackableMask:
+    m_Bits: 0
 --- !u!4 &4783585140169704757
 Transform:
   m_ObjectHideFlags: 0
@@ -18250,6 +18333,10 @@ PrefabInstance:
     - target: {fileID: 6330308774183402280, guid: 0f86fe93c24aafe4c83a39372abce5ac, type: 3}
       propertyPath: m_Name
       value: Villager_Lumberjack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330308774183402280, guid: 0f86fe93c24aafe4c83a39372abce5ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7027751971974583375, guid: 0f86fe93c24aafe4c83a39372abce5ac, type: 3}
       propertyPath: currentGatherignResourceEnum
@@ -19558,7 +19645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6600295197687453737
 Transform:
   m_ObjectHideFlags: 0
@@ -19603,6 +19690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager_Miner
       objectReference: {fileID: 0}
+    - target: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3723309357366070511, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -19643,10 +19734,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6998482385729926942, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+    - {fileID: 1267450680234034259, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+    - {fileID: 5420513401869409351, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 372486398}
+    - targetCorrespondingSourceObject: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 372486397}
   m_SourcePrefab: {fileID: 100100000, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
 --- !u!1 &6735353357445605510
 GameObject:
@@ -20216,11 +20316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitMovement: {fileID: 4775964806782165465}
-  agent: {fileID: 4664762943715970839}
-  animator: {fileID: 8452615600591786581}
-  unitName: BOB
-  unitType: 2
 --- !u!1 &7608539457356436875
 GameObject:
   m_ObjectHideFlags: 0

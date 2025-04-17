@@ -5337,8 +5337,6 @@ GameObject:
   - component: {fileID: 8647829426033591064}
   - component: {fileID: 5153783449001885390}
   - component: {fileID: 5616669603834715738}
-  - component: {fileID: 7310904927956263458}
-  - component: {fileID: 5695180655131979924}
   - component: {fileID: 7027751971974583375}
   m_Layer: 3
   m_Name: Villager_Lumberjack
@@ -5457,50 +5455,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7310904927956263458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330308774183402280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitMovement: {fileID: 5695180655131979924}
-  agent: {fileID: 5616669603834715738}
-  animator: {fileID: 8647829426033591064}
---- !u!114 &5695180655131979924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330308774183402280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a439b7823ebb7574ca5028f1581bd207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 5616669603834715738}
-  animator: {fileID: 8647829426033591064}
-  unitGatheringResources: {fileID: 7027751971974583375}
-  startGatheringDistance: 3
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
-  canGatheringResources: 1
-  canGatheringWood: 1
-  canGatheringStone: 0
-  stoneResourceMask:
-    serializedVersion: 2
-    m_Bits: 256
-  woodResourceMask:
-    serializedVersion: 2
-    m_Bits: 128
-  isMovingToResources: 0
 --- !u!114 &7027751971974583375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5513,13 +5467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f428e0ffcbacd084598f6380be11ddd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats:
-    <ID>k__BackingField: 0
-    <Name>k__BackingField: 
-    <unitType>k__BackingField: 0
-    <Prefab>k__BackingField: {fileID: 0}
-    <Sprite>k__BackingField: {fileID: 0}
-    objectPrices: []
   animator: {fileID: 8647829426033591064}
   currentGatherignResourceEnum: 0
 --- !u!1 &6413048137226597162

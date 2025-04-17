@@ -3338,8 +3338,6 @@ GameObject:
   - component: {fileID: 7057890858436261310}
   - component: {fileID: 2706197579369379158}
   - component: {fileID: 3326141731194661471}
-  - component: {fileID: 6329486664085795850}
-  - component: {fileID: 7044942321051070215}
   m_Layer: 3
   m_Name: Warrior_Female
   m_TagString: Unit
@@ -3457,50 +3455,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6329486664085795850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4697912027264666094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6159dc7aa27254f8a5433f95ccda23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitMovement: {fileID: 7044942321051070215}
-  agent: {fileID: 3326141731194661471}
-  animator: {fileID: 7057890858436261310}
---- !u!114 &7044942321051070215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4697912027264666094}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a439b7823ebb7574ca5028f1581bd207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 3326141731194661471}
-  animator: {fileID: 7057890858436261310}
-  unitGatheringResources: {fileID: 0}
-  startGatheringDistance: 0
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
-  canGatheringResources: 0
-  canGatheringWood: 0
-  canGatheringStone: 0
-  stoneResourceMask:
-    serializedVersion: 2
-    m_Bits: 0
-  woodResourceMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isMovingToResources: 0
 --- !u!1 &4755353798555549978
 GameObject:
   m_ObjectHideFlags: 0

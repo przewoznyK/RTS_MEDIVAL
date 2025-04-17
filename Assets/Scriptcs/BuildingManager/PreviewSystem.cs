@@ -63,7 +63,6 @@ public class PreviewSystem : MonoBehaviour
 
     public void StopSchowingPreview()
     {
-        Debug.Log("KONIEC");
         parentCursorIndicator.SetActive(false);
         if(previewObject != null)
             Destroy(previewObject);

@@ -9,7 +9,7 @@ public abstract class UnitMovement : MonoBehaviour
    // [SerializeField] private UnitGatheringResources unitGatheringResources;
     //[SerializeField] private float startGatheringDistance;
     [SerializeField] protected LayerMask ground;
-    [SerializeField] protected Vector3 targetLocation;
+    protected Vector3 targetLocation;
 
     //[Header("GatheringResources")]
     //[SerializeField] private bool canGatheringResources;

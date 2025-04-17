@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class UnitGatheringResources : MonoBehaviour
 {
- //   [SerializeField] private UnitStats unitStats;
-    [SerializeField] private Animator animator;
-    [SerializeField] private ResourceTypesEnum currentGatherignResourceEnum;
-    [SerializeField] private BuildingToBulit buildingToBulit;
+      [SerializeField] private Animator animator;
+      private ResourceTypesEnum currentGatherignResourceEnum;
+ //   [SerializeField] private BuildingToBulit buildingToBulit;
 
     private void OnEnable()
     {
@@ -56,15 +55,15 @@ public class UnitGatheringResources : MonoBehaviour
         StartCoroutine(GatheringStoneCycle());
     }
 
-    IEnumerator BuildingCycle()
-    {
+    //IEnumerator BuildingCycle()
+    //{
 
-        yield return new WaitForSeconds(3f);
-        if (!buildingToBulit)
-            yield break;
-        buildingToBulit.WorkOnBuilding(3);
-        StartCoroutine(BuildingCycle());
-    }
+    //    yield return new WaitForSeconds(3f);
+    //    if (!buildingToBulit)
+    //        yield break;
+    //    buildingToBulit.WorkOnBuilding(3);
+    //    StartCoroutine(BuildingCycle());
+    //}
 
 
     public void SetCurrentGatheringTypeEnum(ResourceTypesEnum gatheringResourceTypeEnum)
@@ -72,10 +71,8 @@ public class UnitGatheringResources : MonoBehaviour
         currentGatherignResourceEnum = gatheringResourceTypeEnum;
     }
 
-    public void SetBuildingToBuild(BuildingToBulit newBuildingToBulit)
-    {
-        buildingToBulit = newBuildingToBulit;
-    }
-
-    
+    //public void SetBuildingToBuild(BuildingToBulit newBuildingToBulit)
+    //{
+    //    buildingToBulit = newBuildingToBulit;
+    //}    
 }

@@ -17,7 +17,7 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
         UnitSelections.Instance.unitList.Add(this.gameObject);
         //      isActive = false;
     }
-    public void ActiveObject()
+    public virtual void ActiveObject()
     {
         unitMovement.enabled = true;
         UnitUI.instance.ActiveUnitPanelAndPrepareButtons(unitName);
