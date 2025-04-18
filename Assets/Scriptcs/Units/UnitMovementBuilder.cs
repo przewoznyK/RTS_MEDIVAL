@@ -52,8 +52,9 @@ public class UnitMovementBuilder : UnitMovement
 
     void UnitGoingToBuilldObject()
     {
-        if (Vector3.Distance(transform.position, toBulidPosition) <= startBuildDistance + 0.5f)
+        if (Vector3.Distance(transform.position, toBulidPosition) <= startBuildDistance)
         {
+            Debug.Log("START");
             unitBuilderBuildObject.enabled = true;
             unitBuilderBuildObject.SetBuildingToBuild(buildingToBulit);
             unitBuilderBuildObject.StartBuild();
@@ -67,6 +68,7 @@ public class UnitMovementBuilder : UnitMovement
 
     internal void GoBuildingObject(GameObject newObject)
     {
+        unitBuilderBuildObject.enabled = false;
         toBulidPosition = newObject.transform.position;
         agent.SetDestination(newObject.transform.position);
     

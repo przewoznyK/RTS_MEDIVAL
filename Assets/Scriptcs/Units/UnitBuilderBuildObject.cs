@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class UnitBuilderBuildObject : MonoBehaviour
 {
+    [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
     [SerializeField] private BuildingToBulit buildingToBulit;
 

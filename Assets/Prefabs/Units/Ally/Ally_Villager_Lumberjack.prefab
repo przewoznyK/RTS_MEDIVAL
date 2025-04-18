@@ -5337,9 +5337,12 @@ GameObject:
   - component: {fileID: 8647829426033591064}
   - component: {fileID: 5153783449001885390}
   - component: {fileID: 5616669603834715738}
+  - component: {fileID: 7600436678283341176}
+  - component: {fileID: 5686395067380366341}
   - component: {fileID: 7027751971974583375}
+  - component: {fileID: 209902447229336088}
   m_Layer: 3
-  m_Name: Villager_Lumberjack
+  m_Name: Ally_Villager_Lumberjack
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5455,6 +5458,57 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7600436678283341176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330308774183402280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c535fad246c74974c821435f09aa04f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMovement: {fileID: 5686395067380366341}
+  agent: {fileID: 5616669603834715738}
+  animator: {fileID: 8647829426033591064}
+  unitName: Lumberjack
+  unitType: 1
+--- !u!114 &5686395067380366341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330308774183402280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde4eace861628498ba3b18a9b1b5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 5616669603834715738}
+  animator: {fileID: 8647829426033591064}
+  unitAttack: {fileID: 209902447229336088}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  attackable:
+    serializedVersion: 2
+    m_Bits: 4096
+  startAttackingDistance: 0
+  unitGatheringResources: {fileID: 7027751971974583375}
+  unitGathererType: 0
+  newCurrentGatheringResource: 1
+  startGatheringDistance: 1
+  canGatheringWood: 1
+  canGatheringStone: 0
+  woodResourceMask:
+    serializedVersion: 2
+    m_Bits: 128
+  stoneResourceMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &7027751971974583375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5468,7 +5522,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8647829426033591064}
-  currentGatherignResourceEnum: 0
+--- !u!114 &209902447229336088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330308774183402280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c5ecc1bfff82e4082828d8a18f47b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &6413048137226597162
 GameObject:
   m_ObjectHideFlags: 0

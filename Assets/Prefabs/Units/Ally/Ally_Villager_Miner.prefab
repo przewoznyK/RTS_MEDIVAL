@@ -2052,9 +2052,12 @@ GameObject:
   - component: {fileID: 5223404914688420274}
   - component: {fileID: 293114072741133974}
   - component: {fileID: 6782051758704924158}
-  - component: {fileID: 1267450680234034259}
+  - component: {fileID: 2137573348428288105}
+  - component: {fileID: 5688857594610954304}
+  - component: {fileID: 2633011281824248687}
+  - component: {fileID: 2999602552005168292}
   m_Layer: 3
-  m_Name: Villager_Miner
+  m_Name: Ally_Villager_Miner
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,7 +2173,58 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1267450680234034259
+--- !u!114 &2137573348428288105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191591566410275953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c535fad246c74974c821435f09aa04f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMovement: {fileID: 5688857594610954304}
+  agent: {fileID: 6782051758704924158}
+  animator: {fileID: 5223404914688420274}
+  unitName: 
+  unitType: 1
+--- !u!114 &5688857594610954304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191591566410275953}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde4eace861628498ba3b18a9b1b5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 6782051758704924158}
+  animator: {fileID: 5223404914688420274}
+  unitAttack: {fileID: 2999602552005168292}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  attackable:
+    serializedVersion: 2
+    m_Bits: 4096
+  startAttackingDistance: 0
+  unitGatheringResources: {fileID: 2633011281824248687}
+  unitGathererType: 1
+  newCurrentGatheringResource: 0
+  startGatheringDistance: 2
+  canGatheringWood: 0
+  canGatheringStone: 1
+  woodResourceMask:
+    serializedVersion: 2
+    m_Bits: 128
+  stoneResourceMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &2633011281824248687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2183,7 +2237,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5223404914688420274}
-  currentGatherignResourceEnum: 0
+--- !u!114 &2999602552005168292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191591566410275953}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c5ecc1bfff82e4082828d8a18f47b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &3429413223091474014
 GameObject:
   m_ObjectHideFlags: 0
