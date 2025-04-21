@@ -4,13 +4,13 @@ public class UnitMovementWarrior : UnitMovement
 {
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(1) && PreviewSystem.instance.isOnPreview == false)
+        if (Input.GetMouseButtonDown(1) && PreviewSystem.instance.isOnPreview == false && isActiveFromPlayerMouse)
         {
             SetUnitDestination();
         }
-        if (isMovingToAttackTarget)
+        if (targetAttackTransform != null)
         {
+          
             UnitGoingToAttackTarget();
         }
     }

@@ -20,6 +20,7 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     public virtual void ActiveObject()
     {
         unitMovement.enabled = true;
+        unitMovement.IsActiveFromPlayerMouse();
         UnitUI.instance.ActiveUnitPanelAndPrepareButtons(unitName);
     }
 

@@ -10,8 +10,11 @@ public abstract class UnitMovement : MonoBehaviour
     [SerializeField] protected LayerMask ground;
     [SerializeField] protected LayerMask attackable;
     protected Vector3 targetLocation;
+    [SerializeField] protected Transform targetAttackTransform;
     [SerializeField] protected float startAttackingDistance;
-    protected bool isMovingToAttackTarget;
+    // protected bool isMovingToAttackTarget;
+    bool attackCourtineStart = false;
+    protected bool isActiveFromPlayerMouse;
     internal void GoMeetingPosition(Vector3 meetingPosition)
     {
         agent.SetDestination(meetingPosition);
@@ -20,14 +23,12 @@ public abstract class UnitMovement : MonoBehaviour
 
     public virtual void SetUnitDestination()
     {
+        targetAttackTransform = null;
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, Mathf.Infinity, attackable))
         {
-            agent.SetDestination(hit.point);
-            isMovingToAttackTarget = true;
-            targetLocation = hit.point;
-
+            GoToTheAttackTarget(hit.transform);
         }
         else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
         {
@@ -37,15 +38,34 @@ public abstract class UnitMovement : MonoBehaviour
 
     protected void UnitGoingToAttackTarget()
     {
-        if (Vector3.Distance(transform.position, targetLocation) <= startAttackingDistance + 0.5f)
+        if (Vector3.Distance(transform.position, targetAttackTransform.position) <= startAttackingDistance)
         {
-            unitAttack.enabled = true;
-            //   unitGatheringResources.SetCurrentGatheringTypeEnum(newCurrentGatheringResource);
-            unitAttack.StartAttacking();
-            //    transform.GetChild(0).gameObject.SetActive(false);
-            targetLocation = Vector3.zero;
-            isMovingToAttackTarget = false;
-            this.enabled = false;
+            if(agent.velocity.magnitude <= 0.5f && attackCourtineStart == false)
+            {
+                unitAttack.enabled = true;
+                unitAttack.StartAttacking();
+                attackCourtineStart = true;
+            }
+        
+        }
+        else
+        {
+            attackCourtineStart = false;
+            unitAttack.enabled = false;
+            agent.SetDestination(targetAttackTransform.position);
         }
     }
+
+    public void IsActiveFromPlayerMouse()
+    {
+        isActiveFromPlayerMouse = true;
+    }
+
+    internal void GoToTheAttackTarget(Transform transform)
+    {
+        targetAttackTransform = transform; 
+
+    }
+
+
 }

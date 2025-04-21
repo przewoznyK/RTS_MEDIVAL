@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
+
     public static InputManager instance;
     private Vector3 lastPosition;
 
@@ -51,7 +52,7 @@ public class InputManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, clickable))
         {
             // Unit
-            if (hit.collider.gameObject.CompareTag("Unit"))
+            if (hit.collider.gameObject.CompareTag(GameManager.instance.playerUnitColor))
             {
                 // if we hit a clickable object
                 if (Input.GetKey(KeyCode.LeftShift))
@@ -66,7 +67,7 @@ public class InputManager : MonoBehaviour
                 }
             }
             // Building
-            else
+            else if (hit.collider.gameObject.CompareTag(GameManager.instance.playerBuildingColor))
             {
                 ShopUI.instance.SetActivePanel(false);
                 UnitUI.instance.CloseUnitPanel();
