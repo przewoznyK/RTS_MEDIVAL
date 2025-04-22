@@ -41,9 +41,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public string GetUnitEnemyTag(TeamColorEnum myTeamColor)
     {
-        
+        string enemyTag = "";
+        switch (myTeamColor)
+        {
+            case TeamColorEnum.blue:
+                enemyTag = unitRed;
+                break;
+            case TeamColorEnum.red:
+                enemyTag = unitBlue;
+                break;
+            default:
+                break;
+        }
+
+        return enemyTag;
     }
 }

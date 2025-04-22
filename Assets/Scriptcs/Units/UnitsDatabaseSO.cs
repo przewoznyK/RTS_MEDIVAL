@@ -6,7 +6,8 @@ using UnityEngine;
 public enum UnitTypeEnum
 {
     warrior,
-    gatherer,
+    lumberjack,
+    miner,
     builder
 }
 

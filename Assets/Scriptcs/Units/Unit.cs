@@ -9,7 +9,7 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     [SerializeField] protected Animator animator;
     [SerializeField] protected string unitName;
     [SerializeField] protected UnitTypeEnum unitType;
-
+    [SerializeField] protected TeamColorEnum teamColorEnum;
     //[SerializeField] private GameObject activator;
     //private bool isActive;
     void Start()
@@ -45,6 +45,12 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     public void SetUnitType(UnitTypeEnum newUnitType)
     {
         unitType = newUnitType;
+    }
+
+    internal TeamColorEnum GetTeamColor()
+    {
+        return teamColorEnum;
+
     }
     //void Update()
     //{

@@ -20,12 +20,15 @@ public class BuildingUI : MonoBehaviour
     }
     public void ActiveBuildingPanelAndPrepareButtons(ObjectData buildingData, UnitTypeEnum[] unitsToBuy, Vector3 meetingPointPosition)
     {
-
+        foreach (var button in unitBuyButton)
+        {
+            button.gameObject.SetActive(false);
+        }
         for (int i = 0; i < unitsToBuy.Length; i++)
         {
             UnitStats unitStats = unitsDatabase.GetUnitStatsByUnitType(unitsToBuy[i]);
             Button currentButton = unitBuyButton[i];
-
+            currentButton.gameObject.SetActive(true);
 
             currentButton.enabled = true;
             currentButton.GetComponent<ShopObject>().SetObjectToBuyIdAndRefreshButton(unitStats.ID);

@@ -10,11 +10,12 @@ public abstract class UnitMovement : MonoBehaviour
     [SerializeField] protected LayerMask ground;
     [SerializeField] protected LayerMask attackable;
     protected Vector3 targetLocation;
-    [SerializeField] protected Transform targetAttackTransform;
+
     [SerializeField] protected float startAttackingDistance;
-    // protected bool isMovingToAttackTarget;
     bool attackCourtineStart = false;
     protected bool isActiveFromPlayerMouse;
+    [Header("DEBUG")]
+    [SerializeField] protected Transform targetAttackTransform;
     internal void GoMeetingPosition(Vector3 meetingPosition)
     {
         agent.SetDestination(meetingPosition);
@@ -40,8 +41,10 @@ public abstract class UnitMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, targetAttackTransform.position) <= startAttackingDistance)
         {
+            // CHECKING IF UNIT IS NEAR TO TARGET
             if(agent.velocity.magnitude <= 0.5f && attackCourtineStart == false)
             {
+                //START ATTACKING
                 unitAttack.enabled = true;
                 unitAttack.StartAttacking();
                 attackCourtineStart = true;
@@ -50,6 +53,7 @@ public abstract class UnitMovement : MonoBehaviour
         }
         else
         {
+            // STOP ATTACKING
             attackCourtineStart = false;
             unitAttack.enabled = false;
             agent.SetDestination(targetAttackTransform.position);

@@ -6,6 +6,7 @@ public class UnitBuilderBuildObject : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
+    [Header("DEBUG")]
     [SerializeField] private BuildingToBulit buildingToBulit;
 
     public void StartBuild()

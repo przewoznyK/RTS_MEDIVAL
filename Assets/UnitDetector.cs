@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class UnitDetector : MonoBehaviour
 {
+    [SerializeField] protected Unit unit;
     [SerializeField] private UnitMovement unitMovement;
     [SerializeField] private float detectionRadius = 10f;
-    [SerializeField] private string targetTag;
 
     private bool hasTarget;
 
@@ -17,7 +17,7 @@ public class UnitDetector : MonoBehaviour
 
             foreach (Collider collider in colliders)
             {
-                if (collider.CompareTag(targetTag))
+                if (collider.CompareTag(GameManager.instance.GetUnitEnemyTag(unit.GetTeamColor())))
                 {
                     // Podejdü do jednostki
                     unitMovement.enabled = true;
