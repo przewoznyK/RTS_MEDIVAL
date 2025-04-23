@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6107063946030041131}
   m_Layer: 3
   m_Name: TownCenter_FirstAge_Level1
-  m_TagString: Building
+  m_TagString: BuildingBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,9 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395ac72618f4c7142bdb98f2e35cae0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 0}
   buildingID: 0
-  unitsToBuy: 0000000001000000
+  unitsToBuy: 010000000200000003000000
 --- !u!1 &7362514756282754313
 GameObject:
   m_ObjectHideFlags: 0

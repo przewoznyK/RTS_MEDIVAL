@@ -105,8 +105,9 @@ public class BuyingSystem : MonoBehaviour
         }
     }
 
-    public void BuyUnit(int objectID, Vector3 spawnPosition, Vector3 meetingPosition)
+    public void BuyUnit(int objectID, Transform spawnPosition, Transform meetingPosition)
     {
+
         CanPlayerStartBuyUnit(objectID);
         SpendResources();
         PlaceUnit.instance.SpawnUnit(objectID, spawnPosition, meetingPosition);

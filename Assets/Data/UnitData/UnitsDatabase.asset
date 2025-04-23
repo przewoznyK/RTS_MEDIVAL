@@ -15,15 +15,25 @@ MonoBehaviour:
   unitsData:
   - <ID>k__BackingField: 0
     <Name>k__BackingField: Lumberjack
-    <unitType>k__BackingField: 0
+    <unitType>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 6330308774183402280, guid: 0f86fe93c24aafe4c83a39372abce5ac, type: 3}
     <Sprite>k__BackingField: {fileID: 21300000, guid: 1c728f7cc6548f24cadceb6478fa25cc, type: 3}
-    objectPrices:
-    - <priceType>k__BackingField: 1
-      <priceValue>k__BackingField: 15
+    objectPrices: []
   - <ID>k__BackingField: 1
     <Name>k__BackingField: Miner
-    <unitType>k__BackingField: 1
+    <unitType>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
     <Sprite>k__BackingField: {fileID: 21300000, guid: b54b94da5cee5c046bf327246ac181e6, type: 3}
+    objectPrices: []
+  - <ID>k__BackingField: 2
+    <Name>k__BackingField: Builder
+    <unitType>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 3440723877684549508, guid: 744df5385ee3ef14da0b8ff42c4e76ba, type: 3}
+    <Sprite>k__BackingField: {fileID: 21300000, guid: b45939f11371c524684402713923fe54, type: 3}
+    objectPrices: []
+  - <ID>k__BackingField: 3
+    <Name>k__BackingField: Warrior
+    <unitType>k__BackingField: 0
+    <Prefab>k__BackingField: {fileID: 4697912027264666094, guid: 2b34968d7ac7a9d4c8e7cba20bee67e7, type: 3}
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 08d5ec2d201ece949a5e428ba3ea0e63, type: 3}
     objectPrices: []

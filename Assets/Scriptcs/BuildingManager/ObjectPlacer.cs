@@ -19,12 +19,6 @@ public class ObjectPlacer : MonoBehaviour
         {
             unit.GetComponent<UnitMovementBuilder>().GoBuildingObject(newObject);
         }
-        //GameObject newObject = Instantiate(prefab);
-        //newObject.transform.position = position;
-        //if (newObject.TryGetComponent<IActivatable>(out IActivatable activeScript))
-        //    activeScript.Activate();
-
-        //placedGameObject.Add(newObject);
         return placedGameObject.Count - 1;
     }
 

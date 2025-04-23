@@ -45,7 +45,18 @@ public class InputManager : MonoBehaviour
         }
         return lastPosition;
     }
-
+    public Transform GetSelectedMapTransform()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, placementLayermask))
+        {
+            lastPosition = hit.point;
+        }
+        return hit.transform;
+    }
     public void ActiveClickableObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

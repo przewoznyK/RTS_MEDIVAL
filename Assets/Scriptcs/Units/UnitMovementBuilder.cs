@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class UnitMovementBuilder : UnitMovement
 {
     [SerializeField] private UnitBuilderBuildObject unitBuilderBuildObject;
-        private BuildingToBulit buildingToBulit;
+    private BuildingToBulit buildingToBulit;
     [SerializeField] private float startBuildDistance;
     private bool isMovingToBuild;
     private Vector3 toBulidPosition;
@@ -43,7 +42,6 @@ public class UnitMovementBuilder : UnitMovement
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                 agent.SetDestination(hit.point);
-                //   unitGatheringResources.enabled = false;
                 unitBuilderBuildObject.enabled = false;
                 agent.stoppingDistance = startBuildDistance;
             }
@@ -54,7 +52,6 @@ public class UnitMovementBuilder : UnitMovement
     {
         if (Vector3.Distance(transform.position, toBulidPosition) <= startBuildDistance)
         {
-            Debug.Log("START");
             unitBuilderBuildObject.enabled = true;
             unitBuilderBuildObject.SetBuildingToBuild(buildingToBulit);
             unitBuilderBuildObject.StartBuild();

@@ -5,7 +5,8 @@ public class Building : MonoBehaviour, IActiveClickable
     [SerializeField] private int buildingID;
     [SerializeField] private UnitTypeEnum[] unitsToBuy;
 
-    Vector3 meetingPoint;
+    [SerializeField] Transform spawnUnitPoint;
+    [SerializeField] Transform meetingUnitPoint;
     ObjectData buildingData;
 
     private void Start()
@@ -14,7 +15,8 @@ public class Building : MonoBehaviour, IActiveClickable
     }
     public void ActiveObject()
     {
-        BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingData, unitsToBuy, meetingPoint);
+
+        BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingData, unitsToBuy, spawnUnitPoint, meetingUnitPoint);
         InputManager.instance.onClicked -= InputManager.instance.ActiveClickableObject;
         InputManager.instance.onClicked += ClosePanel;
         InputManager.instance.onExit += SetMeetingPoint;
@@ -22,8 +24,8 @@ public class Building : MonoBehaviour, IActiveClickable
 
     public void SetMeetingPoint()
     {
-        meetingPoint = InputManager.instance.GetSelectedMapPosition();
-        BuildingUI.instance.ChangeMeetingPointPosition(meetingPoint);
+        spawnUnitPoint = InputManager.instance.GetSelectedMapTransform();
+        BuildingUI.instance.ChangeMeetingPointPosition(meetingUnitPoint);
     }
 
 

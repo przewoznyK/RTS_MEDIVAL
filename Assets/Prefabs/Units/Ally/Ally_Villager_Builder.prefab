@@ -3619,7 +3619,7 @@ MonoBehaviour:
   agent: {fileID: 344465854963208047}
   animator: {fileID: 8374497004599681555}
   unitName: Builder
-  unitType: 2
+  unitType: 3
   teamColorEnum: 0
 --- !u!114 &3998890530653140599
 MonoBehaviour:

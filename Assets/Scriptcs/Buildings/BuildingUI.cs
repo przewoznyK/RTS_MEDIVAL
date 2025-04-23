@@ -13,13 +13,15 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private UnitsDatabaseSO unitsDatabase;
     [Header("Unit Buy Buttons")]
     [SerializeField] private Button[] unitBuyButton;
-    [SerializeField] private Vector3 currentStartUnitPosition;
+    private Transform currentSpawnPosition;
     private void Awake()
     {
         instance = this;
     }
-    public void ActiveBuildingPanelAndPrepareButtons(ObjectData buildingData, UnitTypeEnum[] unitsToBuy, Vector3 meetingPointPosition)
+    public void ActiveBuildingPanelAndPrepareButtons(ObjectData buildingData, UnitTypeEnum[] unitsToBuy, Transform spawnUnitPosition, Transform meetingPointPosition)
     {
+        Debug.Log(spawnUnitPosition);
+        Debug.Log(meetingPointPosition);
         foreach (var button in unitBuyButton)
         {
             button.gameObject.SetActive(false);
@@ -39,9 +41,10 @@ public class BuildingUI : MonoBehaviour
         buildingTitle.text = buildingData.Name;
         buildingPanel.gameObject.SetActive(true);
 
-        meetingPoint.transform.position = meetingPointPosition;
+        meetingPoint = meetingPointPosition;
+        currentSpawnPosition = spawnUnitPosition;
         meetingPoint.gameObject.SetActive(true);
-        //  currentStartUnitPosition = startUnitPosition;
+   
     }
 
     public void CloseBuildingPanel()
@@ -51,10 +54,10 @@ public class BuildingUI : MonoBehaviour
     }
     public void StartBuyingUnitProcess(int unitID)
     {
-        BuyingSystem.instance.BuyUnit(unitID, currentStartUnitPosition, meetingPoint.transform.position);
+        BuyingSystem.instance.BuyUnit(unitID, currentSpawnPosition, meetingPoint.transform);
     }
-    public void ChangeMeetingPointPosition(Vector3 position)
+    public void ChangeMeetingPointPosition(Transform position)
     {
-        meetingPoint.transform.position = position;
+        meetingPoint = position;
     }
 }

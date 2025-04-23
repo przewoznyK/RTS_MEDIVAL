@@ -20,23 +20,8 @@ MonoBehaviour:
     objectPrices:
     - <priceType>k__BackingField: 1
       <priceValue>k__BackingField: 5
-  - <Name>k__BackingField: TownCenter_FirstAge_Level2
+  - <Name>k__BackingField: Barrack (First Age)
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 6, y: 6}
-    <Prefab>k__BackingField: {fileID: 1359739876478968832, guid: 6d69ee30c8956ec41b6889b03d2067bb, type: 3}
-    objectPrices: []
-  - <Name>k__BackingField: TownCenter_FirstAge_Level3
-    <ID>k__BackingField: 2
-    <Size>k__BackingField: {x: 6, y: 6}
-    <Prefab>k__BackingField: {fileID: 8692254683046552974, guid: ac492860158e91045b810d854d5f9e89, type: 3}
-    objectPrices: []
-  - <Name>k__BackingField: Barracks_FirstAge_Level1
-    <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 6, y: 6}
     <Prefab>k__BackingField: {fileID: 7061403782836248359, guid: 01237cfe4f9ec1540be4a1a4c13dfc95, type: 3}
-    objectPrices: []
-  - <Name>k__BackingField: TownCenter_SecondAge_Level2
-    <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 6, y: 6}
-    <Prefab>k__BackingField: {fileID: 7137716855386859143, guid: a3efa9d28f1a194478e18f58607b33ce, type: 3}
     objectPrices: []

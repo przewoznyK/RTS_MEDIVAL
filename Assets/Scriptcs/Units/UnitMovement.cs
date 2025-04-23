@@ -16,9 +16,9 @@ public abstract class UnitMovement : MonoBehaviour
     protected bool isActiveFromPlayerMouse;
     [Header("DEBUG")]
     [SerializeField] protected Transform targetAttackTransform;
-    internal void GoMeetingPosition(Vector3 meetingPosition)
+    internal void GoMeetingPosition(Transform meetingPosition)
     {
-        agent.SetDestination(meetingPosition);
+        agent.SetDestination(meetingPosition.position);
         this.enabled = false;
     }
 
