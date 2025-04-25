@@ -20,12 +20,12 @@ public class BuildingUI : MonoBehaviour
     }
     public void ActiveBuildingPanelAndPrepareButtons(ObjectData buildingData, UnitTypeEnum[] unitsToBuy, Transform spawnUnitPosition, Transform meetingPointPosition)
     {
-        Debug.Log(spawnUnitPosition);
-        Debug.Log(meetingPointPosition);
+        // Deative all buttons
         foreach (var button in unitBuyButton)
         {
             button.gameObject.SetActive(false);
         }
+        // Set buttons
         for (int i = 0; i < unitsToBuy.Length; i++)
         {
             UnitStats unitStats = unitsDatabase.GetUnitStatsByUnitType(unitsToBuy[i]);
@@ -37,12 +37,14 @@ public class BuildingUI : MonoBehaviour
             currentButton.image.sprite = unitStats.Sprite;
         }
 
-
+        // Set and active building panel
         buildingTitle.text = buildingData.Name;
         buildingPanel.gameObject.SetActive(true);
 
-        meetingPoint = meetingPointPosition;
+        // Set spawnPoint and meeting position
         currentSpawnPosition = spawnUnitPosition;
+
+        meetingPoint = meetingPointPosition;
         meetingPoint.gameObject.SetActive(true);
    
     }
@@ -56,8 +58,34 @@ public class BuildingUI : MonoBehaviour
     {
         BuyingSystem.instance.BuyUnit(unitID, currentSpawnPosition, meetingPoint.transform);
     }
-    public void ChangeMeetingPointPosition(Transform position)
+    public Transform ChangeMeetingPointPosition()
     {
-        meetingPoint = position;
+        //Debug.Log("ZMIENIAM");
+        //meetingPoint = position;
+        //Debug.Log(meetingPoint.position);
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            meetingPoint.transform.position = hit.point;
+
+            return meetingPoint;
+
+        }
+        return null;
+    }
+
+    public void SetNewMeetingPosition()
+    {
+        //  GameObject obj = Instantiate(meetingPoint);
+        //   obj.transform.position = hit.point;
+
+
+
+
+        //return null;
     }
 }

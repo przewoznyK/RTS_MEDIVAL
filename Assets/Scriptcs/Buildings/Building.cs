@@ -15,7 +15,7 @@ public class Building : MonoBehaviour, IActiveClickable
     }
     public void ActiveObject()
     {
-
+        Debug.Log(meetingUnitPoint.transform.position);
         BuildingUI.instance.ActiveBuildingPanelAndPrepareButtons(buildingData, unitsToBuy, spawnUnitPoint, meetingUnitPoint);
         InputManager.instance.onClicked -= InputManager.instance.ActiveClickableObject;
         InputManager.instance.onClicked += ClosePanel;
@@ -24,8 +24,9 @@ public class Building : MonoBehaviour, IActiveClickable
 
     public void SetMeetingPoint()
     {
-        spawnUnitPoint = InputManager.instance.GetSelectedMapTransform();
-        BuildingUI.instance.ChangeMeetingPointPosition(meetingUnitPoint);
+        //  meetingUnitPoint = InputManager.instance.GetSelectedMapTransform();
+        Debug.Log("ZMIENIAM");
+        meetingUnitPoint.transform.position =  BuildingUI.instance.ChangeMeetingPointPosition().transform.position;
     }
 
 
