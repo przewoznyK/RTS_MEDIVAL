@@ -57,6 +57,7 @@ public abstract class UnitMovement : MonoBehaviour
             attackCourtineStart = false;
             unitAttack.enabled = false;
             agent.SetDestination(targetAttackTransform.position);
+ 
         }
     }
 
@@ -71,5 +72,10 @@ public abstract class UnitMovement : MonoBehaviour
 
     }
 
-
+    public void FaceTarget()
+    {
+        Vector3 direction = (targetAttackTransform.position - transform.position).normalized;
+        direction.y = 0f;
+        transform.rotation = Quaternion.LookRotation(direction);
+    }
 }

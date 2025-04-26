@@ -7,7 +7,7 @@ public class UnitAttack : MonoBehaviour
 {
     [SerializeField] protected Animator animator;
     [SerializeField] private AttackArea attackArea;
-
+    [SerializeField] protected UnitMovement unitMovement;
     internal void StartAttacking()
     {
         StartCoroutine(AttackCycle());
@@ -15,11 +15,14 @@ public class UnitAttack : MonoBehaviour
 
     IEnumerator AttackCycle()
     {
+        unitMovement.FaceTarget();
         animator.SetTrigger("Attack");
-        attackArea.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        //     attackArea.
+        attackArea.SetActiveCollider(true);
+        yield return new WaitForSeconds(1f);
+        attackArea.SetActiveCollider(false);
 
-        attackArea.gameObject.SetActive(false);
+        //    attackArea.gameObject.SetActive(false);
         yield return new WaitForSeconds(3);
 
         StartCoroutine(AttackCycle());
@@ -28,5 +31,6 @@ public class UnitAttack : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        attackArea.SetActiveCollider(false);
     }
 }

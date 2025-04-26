@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
+    [SerializeField] private Unit unit;
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
 
@@ -9,11 +11,15 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         if (currentHealth <= 0)
-            Debug.Log("SMIERC");
+        {
+            animator.SetTrigger("Death");
+            unit.Death();
+            return true;
+        }
+        return false;
     }
 }

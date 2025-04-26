@@ -7,6 +7,7 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     [SerializeField] protected UnitMovement unitMovement;
     [SerializeField] protected NavMeshAgent agent;
     [SerializeField] protected Animator animator;
+    [SerializeField] protected CapsuleCollider capsuleCollider;
     [SerializeField] protected string unitName;
     [SerializeField] protected UnitTypeEnum unitType;
     [SerializeField] protected TeamColorEnum teamColorEnum;
@@ -51,6 +52,13 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     {
         return teamColorEnum;
 
+    }
+
+    public void Death()
+    {
+        gameObject.tag = "DeathBody";
+        agent.isStopped = true;
+        capsuleCollider.enabled = false;
     }
     //void Update()
     //{
