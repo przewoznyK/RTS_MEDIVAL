@@ -22,7 +22,7 @@ MonoBehaviour:
   - <ID>k__BackingField: 1
     <Name>k__BackingField: Miner
     <unitType>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 3191591566410275953, guid: 7838f28696f0a104f8760214dccedcf4, type: 3}
+    <Prefab>k__BackingField: {fileID: 8622036536350364144, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
     <Sprite>k__BackingField: {fileID: 21300000, guid: b54b94da5cee5c046bf327246ac181e6, type: 3}
     objectPrices: []
   - <ID>k__BackingField: 2

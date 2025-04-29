@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Building : MonoBehaviour, IActiveClickable
 {
     [SerializeField] private int buildingID;
     [SerializeField] private UnitTypeEnum[] unitsToBuy;
-
+    [field: SerializeField] public TeamColorEnum teamColor { get; private set; }
     [SerializeField] Transform spawnUnitPoint;
     [SerializeField] Transform meetingUnitPoint;
     ObjectData buildingData;
@@ -39,5 +40,8 @@ public class Building : MonoBehaviour, IActiveClickable
         }
     }
 
-    
+    internal void SetTeamColor(TeamColorEnum teamColorToSet)
+    {
+        teamColor = teamColorToSet;
+    }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2322116727180636221}
   - component: {fileID: 4349143246962521802}
   - component: {fileID: 6107063946030041131}
+  - component: {fileID: 332786011915449880}
   m_Layer: 3
   m_Name: TownCenter_FirstAge_Level1
   m_TagString: BuildingBlue
@@ -71,8 +72,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingID: 0
   unitsToBuy: 010000000200000003000000
+  <teamColor>k__BackingField: 0
   spawnUnitPoint: {fileID: 4591699235304844274}
   meetingUnitPoint: {fileID: 1058466256819740652}
+--- !u!114 &332786011915449880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657932571853216205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a7625dfd3e6544d943c28c1bff4718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 6107063946030041131}
+  resourcesToStargeList: 0100000002000000
 --- !u!1 &6005994652727546644
 GameObject:
   m_ObjectHideFlags: 0

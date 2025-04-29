@@ -3,18 +3,14 @@ using UnityEngine;
 
 public class UnitGatheringResources : MonoBehaviour
 {
-      [SerializeField] private Animator animator;
-      private ResourceTypesEnum currentGatherignResourceEnum;
- //   [SerializeField] private BuildingToBulit buildingToBulit;
+    [SerializeField] private UnitGatherer unitGatherer;
+    [SerializeField] private Animator animator;
+    private ResourceTypesEnum currentGatherignResourceEnum;
+    
 
     private void OnEnable()
     {
         animator.SetBool("IsMining", true);
-        //if (unitStats.GetCurrentGatheringeResource() == ResourceTypesEnum.wood)
-        //    StartCoroutine(GatheringWoodCycle());
-        //else if (unitStats.GetCurrentGatheringeResource() == ResourceTypesEnum.stone)
-        //    StartCoroutine(GatheringStoneCycle());
-
     }
 
     public void StartGathering()
@@ -27,11 +23,6 @@ public class UnitGatheringResources : MonoBehaviour
             case ResourceTypesEnum.stone:
                 StartCoroutine(GatheringStoneCycle());
                 break;
-            //case ResourceTypesEnum.building:
-            //    animator.SetBool("IsMining", true);
-            //    buildingToBulit.AddToActiveBuildersList(this);
-            //    StartCoroutine(BuildingCycle());
-            //    break;
 
         }
     }
@@ -52,18 +43,10 @@ public class UnitGatheringResources : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         PlayerResourceManager.instance.AddResource(ResourceTypesEnum.stone, 3);
+        unitGatherer.AddResourceToDictionary(ResourceTypesEnum.stone, 3);
+
         StartCoroutine(GatheringStoneCycle());
     }
-
-    //IEnumerator BuildingCycle()
-    //{
-
-    //    yield return new WaitForSeconds(3f);
-    //    if (!buildingToBulit)
-    //        yield break;
-    //    buildingToBulit.WorkOnBuilding(3);
-    //    StartCoroutine(BuildingCycle());
-    //}
 
 
     public void SetCurrentGatheringTypeEnum(ResourceTypesEnum gatheringResourceTypeEnum)
@@ -71,8 +54,5 @@ public class UnitGatheringResources : MonoBehaviour
         currentGatherignResourceEnum = gatheringResourceTypeEnum;
     }
 
-    //public void SetBuildingToBuild(BuildingToBulit newBuildingToBulit)
-    //{
-    //    buildingToBulit = newBuildingToBulit;
-    //}    
+
 }

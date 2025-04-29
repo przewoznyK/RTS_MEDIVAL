@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildingToBulit : MonoBehaviour
 {
     [SerializeField] private GameObject finishBuilding;
+    private TeamColorEnum teamColorToSet;
     [SerializeField] private int timeToBuilt;
     List<UnitBuilderBuildObject> unitGatheringResourcesList = new();
     public void SetFinishBuilding(GameObject builtToCreate)
@@ -14,7 +15,8 @@ public class BuildingToBulit : MonoBehaviour
 
     internal void EndProcess()
     {
-        Instantiate(finishBuilding, transform.position, Quaternion.identity);
+        GameObject newBuilding = Instantiate(finishBuilding, transform.position, Quaternion.identity);
+        newBuilding.GetComponent<Building>().SetTeamColor(teamColorToSet);
         foreach (var unitGathering in unitGatheringResourcesList)
         {
 
