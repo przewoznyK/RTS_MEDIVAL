@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitMovementGatherer : UnitMovement
 {
+    [Header("Unit Movement Gatherer")]
+    [SerializeField] private UnitGatherer unitGatherer;
     [SerializeField] private UnitGatheringResources unitGatheringResources;
     [SerializeField] private UnitGathererType unitGathererType;
     [SerializeField] private ResourceTypesEnum newCurrentGatheringResource;
-    [SerializeField] private float startGatheringDistance;
+
     private bool isMovingToResources;
     private Vector3 resourcePosition;
     [Header("Resources")]
@@ -21,10 +24,7 @@ public class UnitMovementGatherer : UnitMovement
         {
             SetUnitDestination();
         }
-        if (isMovingToResources)
-        {
-            UnitGoingToGatcheringResource();
-        }
+
     }
 
     public override void SetUnitDestination()
@@ -35,20 +35,17 @@ public class UnitMovementGatherer : UnitMovement
 
         if (canGatheringWood && Physics.Raycast(ray, out hit, Mathf.Infinity, woodResourceMask))
         {
-            resourcePosition = hit.point;
-            agent.SetDestination(hit.point);
-            newCurrentGatheringResource = ResourceTypesEnum.wood;
-            isMovingToResources = true;
-            agent.stoppingDistance = startGatheringDistance;
+            unitGatheringResources.enabled = true;
+            unitGatheringResources.GoToResource(hit.point, ResourceTypesEnum.wood);
 
         }
         else if (canGatheringStone && Physics.Raycast(ray, out hit, Mathf.Infinity, stoneResourceMask))
         {
-            resourcePosition = hit.point;
-            agent.SetDestination(hit.point);
-            newCurrentGatheringResource = ResourceTypesEnum.stone;
-            isMovingToResources = true;
-            agent.stoppingDistance = startGatheringDistance;
+            unitGatheringResources.enabled = true;
+            unitGatheringResources.GoToResource(hit.point, ResourceTypesEnum.stone);
+        
+     
+  
         }
 
         if(!isMovingToResources)
@@ -56,24 +53,13 @@ public class UnitMovementGatherer : UnitMovement
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                 agent.SetDestination(hit.point);
-                unitGatheringResources.enabled = false;
-                agent.stoppingDistance = startGatheringDistance;
+             //   unitGatheringResources.enabled = false;
             }
         }
     }
 
-    void UnitGoingToGatcheringResource()
-    {
-        if (Vector3.Distance(transform.position, resourcePosition) <= startGatheringDistance + 0.5f)
-        {
-            unitGatheringResources.enabled = true;
-            unitGatheringResources.SetCurrentGatheringTypeEnum(newCurrentGatheringResource);
-            unitGatheringResources.StartGathering();
-            transform.GetChild(0).gameObject.SetActive(false);
-            resourcePosition = Vector3.zero;
-            isMovingToResources = false;
-            this.enabled = false;
-        }
-    }
+
+
+
 
 }

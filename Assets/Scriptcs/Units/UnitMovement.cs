@@ -79,7 +79,7 @@ public abstract class UnitMovement : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direction);
     }
 
-    public void GoToBuilding(Storage storage)
+    public virtual void GoToStorage(Storage storage)
     {
         agent.SetDestination(storage.gameObject.transform.position);
     }

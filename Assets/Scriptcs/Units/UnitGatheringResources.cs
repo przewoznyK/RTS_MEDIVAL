@@ -1,16 +1,68 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class UnitGatheringResources : MonoBehaviour
 {
     [SerializeField] private UnitGatherer unitGatherer;
+    [SerializeField] private UnitMovementGatherer unitMovementGatherer;
     [SerializeField] private Animator animator;
-    private ResourceTypesEnum currentGatherignResourceEnum;
-    
+    [SerializeField] private NavMeshAgent agent;
 
-    private void OnEnable()
+    [Header("Resources")]
+    [SerializeField] private float startGatheringDistance;
+    Vector3 resourcePosition;
+    private bool isMovingToResources;
+    private ResourceTypesEnum currentGatherignResourceEnum;
+    [SerializeField] private Dictionary<ResourceTypesEnum, int> currentUnitResourcesDictionary = new();
+    private Coroutine gatheringRoutine;
+    [Header("Storage")]
+    [SerializeField] private int maxResourcesAmount = 6;
+    private Storage currentTargetStorage;
+    private bool isMovingToStorage;
+   
+
+    private void Update()
     {
-        animator.SetBool("IsMining", true);
+        if(isMovingToResources)
+        {
+            UnitGoingToGatcheringResource();
+        }
+
+        if (isMovingToStorage)
+        {
+            if (Vector3.Distance(transform.position, currentTargetStorage.transform.position) <= 3f)
+            {
+                currentUnitResourcesDictionary = currentTargetStorage.PutInResourcesInStorage(currentUnitResourcesDictionary);
+                isMovingToStorage = false;
+
+            }
+        }
+    }
+
+    public void AddResourceToDictionary(ResourceTypesEnum resourceType, int value)
+    {
+        if (currentUnitResourcesDictionary.ContainsKey(resourceType))
+        {
+            currentUnitResourcesDictionary[resourceType] += value;
+            if (currentUnitResourcesDictionary[resourceType] > maxResourcesAmount)
+            {
+                Storage storage = ResourcesManager.instance.GetNearestStorage(resourceType, transform);
+                GoToStorage(storage);
+            }
+        }
+        else
+            currentUnitResourcesDictionary.Add(resourceType, value);
+    }
+
+    public void SubstractResourceInDictionary(ResourceTypesEnum resourceType, int value)
+    {
+        if (currentUnitResourcesDictionary.ContainsKey(resourceType))
+        {
+            currentUnitResourcesDictionary[resourceType] -= value;
+        }
     }
 
     public void StartGathering()
@@ -21,7 +73,7 @@ public class UnitGatheringResources : MonoBehaviour
                StartCoroutine(GatheringWoodCycle());
                 break;
             case ResourceTypesEnum.stone:
-                StartCoroutine(GatheringStoneCycle());
+                gatheringRoutine = StartCoroutine(GatheringStoneCycle());
                 break;
 
         }
@@ -29,8 +81,12 @@ public class UnitGatheringResources : MonoBehaviour
 
     private void OnDisable()
     {
-        animator.SetBool("IsMining", false);
-        StopAllCoroutines();
+   
+        if (gatheringRoutine != null)
+        {
+            StopCoroutine(gatheringRoutine);
+            gatheringRoutine = null;
+        }
     }
     IEnumerator GatheringWoodCycle()
     {
@@ -41,11 +97,12 @@ public class UnitGatheringResources : MonoBehaviour
     }
     IEnumerator GatheringStoneCycle()
     {
-        yield return new WaitForSeconds(3f);
-        PlayerResourceManager.instance.AddResource(ResourceTypesEnum.stone, 3);
-        unitGatherer.AddResourceToDictionary(ResourceTypesEnum.stone, 3);
-
-        StartCoroutine(GatheringStoneCycle());
+        animator.SetBool("IsMining", false);
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            AddResourceToDictionary(ResourceTypesEnum.stone, 3);
+        }
     }
 
 
@@ -54,5 +111,35 @@ public class UnitGatheringResources : MonoBehaviour
         currentGatherignResourceEnum = gatheringResourceTypeEnum;
     }
 
+    public void GoToStorage(Storage storage)
+    {
+        currentTargetStorage = storage;
+        agent.SetDestination(currentTargetStorage.transform.position);
+        animator.SetBool("IsMining", false);
+        StopCoroutine(gatheringRoutine);
+        isMovingToStorage = true;
+     
+    }
 
+    internal void GoToResource(Vector3 resourcePositionToSet, ResourceTypesEnum currentGatherignResourceEnum)
+    {
+        resourcePosition = resourcePositionToSet;
+        agent.SetDestination(resourcePosition);
+        
+        isMovingToResources = true;
+        agent.stoppingDistance = startGatheringDistance;
+
+    }
+
+    void UnitGoingToGatcheringResource()
+    {
+        if (Vector3.Distance(transform.position, resourcePosition) <= startGatheringDistance + 0.5f)
+        {
+            
+            StartGathering();
+    
+            isMovingToResources = false;
+         
+        }
+    }
 }

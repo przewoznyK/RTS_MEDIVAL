@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Storage : MonoBehaviour
@@ -15,5 +17,16 @@ public class Storage : MonoBehaviour
         }
     }
 
+    public Dictionary<ResourceTypesEnum, int> PutInResourcesInStorage(Dictionary<ResourceTypesEnum, int> currentUnitResourcesDictionary)
+    {
+        var currentUnitResourcesDictionaryCopy = currentUnitResourcesDictionary.Keys.ToList();
 
+        foreach (var resoruceKey in currentUnitResourcesDictionaryCopy)
+        {
+            int value = currentUnitResourcesDictionary[resoruceKey];
+            PlayerResourceManager.instance.AddResource(resoruceKey, value);
+            currentUnitResourcesDictionary[resoruceKey] = 0;
+        }
+        return currentUnitResourcesDictionary;
+    }
 }

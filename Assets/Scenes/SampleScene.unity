@@ -3055,6 +3055,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1784281894652895362, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1838839395}
+    - target: {fileID: 1784281894652895362, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: unitGatherer
+      value: 
+      objectReference: {fileID: 1838839392}
+    - target: {fileID: 3998924242043989450, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: unitName
+      value: Miner
+      objectReference: {fileID: 0}
     - target: {fileID: 4434416454088236551, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.96
@@ -4521,6 +4533,52 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1246139154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1246139156}
+  - component: {fileID: 1246139155}
+  m_Layer: 0
+  m_Name: ResourcesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1246139155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246139154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2f449562a20f44e951265bebd30c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueWoodStorage: []
+  blueStoneStorage: []
+--- !u!4 &1246139156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246139154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265995698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5736,6 +5794,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763931326}
   m_CullTransparentMesh: 1
+--- !u!114 &1838839392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3998924242043989450, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+  m_PrefabInstance: {fileID: 857095674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c535fad246c74974c821435f09aa04f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1838839395 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8573440586032361527, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+  m_PrefabInstance: {fileID: 857095674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911827957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,8 +5917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resources: []
-  startWoodResource: 5
-  startStoneResource: 5
+  startWoodResource: 25
+  startStoneResource: 25
 --- !u!4 &1915905228
 Transform:
   m_ObjectHideFlags: 0
@@ -6423,7 +6497,7 @@ Transform:
   m_GameObject: {fileID: 919132148633519812}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.67, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6702,6 +6776,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2042141385}
+  - {fileID: 1246139156}
   - {fileID: 1296347042}
   - {fileID: 276703700}
   - {fileID: 1915905228}
