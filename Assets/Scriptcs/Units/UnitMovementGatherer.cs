@@ -8,8 +8,6 @@ public class UnitMovementGatherer : UnitMovement
     [SerializeField] private UnitGatheringResources unitGatheringResources;
     [SerializeField] private UnitGathererType unitGathererType;
     [SerializeField] private ResourceTypesEnum newCurrentGatheringResource;
-
-    private bool isMovingToResources;
     private Vector3 resourcePosition;
     [Header("Resources")]
     [SerializeField] private bool canGatheringWood;
@@ -31,7 +29,6 @@ public class UnitMovementGatherer : UnitMovement
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        isMovingToResources = false;
 
         if (canGatheringWood && Physics.Raycast(ray, out hit, Mathf.Infinity, woodResourceMask))
         {
@@ -43,19 +40,18 @@ public class UnitMovementGatherer : UnitMovement
         {
             unitGatheringResources.enabled = true;
             unitGatheringResources.GoToResource(hit.point, ResourceTypesEnum.stone);
-        
-     
-  
-        }
+            this.enabled = false;
+            unitGatherer.DeactiveUnit();
 
-        if(!isMovingToResources)
-        {
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
-            {
-                agent.SetDestination(hit.point);
-             //   unitGatheringResources.enabled = false;
-            }
+
+
         }
+        else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+        {
+            agent.SetDestination(hit.point);
+            unitGatheringResources.enabled = false;
+         }
+        
     }
 
 

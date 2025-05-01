@@ -12,12 +12,9 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     [SerializeField] protected string unitName;
     [SerializeField] protected UnitTypeEnum unitType;
     [SerializeField] protected TeamColorEnum teamColorEnum;
-    //[SerializeField] private GameObject activator;
-    //private bool isActive;
     void Start()
     {
         UnitSelections.Instance.unitList.Add(this.gameObject);
-        //      isActive = false;
     }
     public virtual void ActiveObject()
     {
@@ -88,10 +85,9 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     //    activator.SetActive(true);
     //    isActive = true;
     //}
-    //public void DeactiveUnit()
-    //{
-    //    activator.SetActive(false);
-    //    isActive = false;
-    //}
+    public void DeactiveUnit()
+    {
+        activator.SetActive(false);
+    }
 
 }

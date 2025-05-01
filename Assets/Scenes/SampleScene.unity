@@ -3055,6 +3055,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1157485849427868722, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: unitGatherer
+      value: 
+      objectReference: {fileID: 1838839392}
+    - target: {fileID: 1784281894652895362, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 1838839400}
     - target: {fileID: 1784281894652895362, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
       propertyPath: animator
       value: 
@@ -3063,10 +3071,22 @@ PrefabInstance:
       propertyPath: unitGatherer
       value: 
       objectReference: {fileID: 1838839392}
+    - target: {fileID: 1784281894652895362, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: unitMovementGatherer
+      value: 
+      objectReference: {fileID: 1838839399}
+    - target: {fileID: 1784281894652895362, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: startGatheringDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3998924242043989450, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
       propertyPath: unitName
       value: Miner
       objectReference: {fileID: 0}
+    - target: {fileID: 3998924242043989450, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+      propertyPath: unitMovementGatherer
+      value: 
+      objectReference: {fileID: 1838839399}
     - target: {fileID: 4434416454088236551, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.96
@@ -5808,6 +5828,22 @@ MonoBehaviour:
 --- !u!95 &1838839395 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8573440586032361527, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+  m_PrefabInstance: {fileID: 857095674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1838839399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1157485849427868722, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
+  m_PrefabInstance: {fileID: 857095674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde4eace861628498ba3b18a9b1b5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &1838839400 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 8731182762483430961, guid: 8c1b48118b8c62e48be3a0df5ca3e9f7, type: 3}
   m_PrefabInstance: {fileID: 857095674}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911827957

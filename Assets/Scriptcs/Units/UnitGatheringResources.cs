@@ -33,11 +33,12 @@ public class UnitGatheringResources : MonoBehaviour
 
         if (isMovingToStorage)
         {
+
             if (Vector3.Distance(transform.position, currentTargetStorage.transform.position) <= 3f)
             {
                 currentUnitResourcesDictionary = currentTargetStorage.PutInResourcesInStorage(currentUnitResourcesDictionary);
                 isMovingToStorage = false;
-
+                GoToResource(resourcePosition, currentGatherignResourceEnum);
             }
         }
     }
@@ -70,9 +71,10 @@ public class UnitGatheringResources : MonoBehaviour
         switch (currentGatherignResourceEnum)
         {
             case ResourceTypesEnum.wood:
-               StartCoroutine(GatheringWoodCycle());
+                gatheringRoutine = StartCoroutine(GatheringWoodCycle());
                 break;
             case ResourceTypesEnum.stone:
+              
                 gatheringRoutine = StartCoroutine(GatheringStoneCycle());
                 break;
 
@@ -81,23 +83,26 @@ public class UnitGatheringResources : MonoBehaviour
 
     private void OnDisable()
     {
-   
         if (gatheringRoutine != null)
         {
             StopCoroutine(gatheringRoutine);
             gatheringRoutine = null;
         }
+        isMovingToResources = false;
+        isMovingToStorage = false;
     }
     IEnumerator GatheringWoodCycle()
     {
-
-        yield return new WaitForSeconds(3f);
-        PlayerResourceManager.instance.AddResource(ResourceTypesEnum.wood, 3);
-        StartCoroutine(GatheringWoodCycle());
+        animator.SetBool("IsMining", true);
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            AddResourceToDictionary(ResourceTypesEnum.wood, 3);
+        }
     }
     IEnumerator GatheringStoneCycle()
     {
-        animator.SetBool("IsMining", false);
+        animator.SetBool("IsMining", true);
         while (true)
         {
             yield return new WaitForSeconds(3f);
@@ -121,11 +126,11 @@ public class UnitGatheringResources : MonoBehaviour
      
     }
 
-    internal void GoToResource(Vector3 resourcePositionToSet, ResourceTypesEnum currentGatherignResourceEnum)
+    internal void GoToResource(Vector3 resourcePositionToSet, ResourceTypesEnum currentGatherignResourceEnumToSet)
     {
         resourcePosition = resourcePositionToSet;
         agent.SetDestination(resourcePosition);
-        
+        currentGatherignResourceEnum = currentGatherignResourceEnumToSet;
         isMovingToResources = true;
         agent.stoppingDistance = startGatheringDistance;
 
@@ -134,12 +139,11 @@ public class UnitGatheringResources : MonoBehaviour
     void UnitGoingToGatcheringResource()
     {
         if (Vector3.Distance(transform.position, resourcePosition) <= startGatheringDistance + 0.5f)
-        {
-            
+        {          
             StartGathering();
-    
             isMovingToResources = false;
-         
         }
     }
+
+   
 }
