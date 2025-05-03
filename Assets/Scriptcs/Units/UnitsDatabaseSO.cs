@@ -22,7 +22,7 @@ public class UnitsDatabaseSO : ScriptableObject
     public GameObject GetPrefabByID(int id)
     {
         UnitStats unit = unitsData.FirstOrDefault(u => u.ID == id);
-        return unit?.Prefab; // Jeœli znajdzie, zwróci Prefab, jeœli nie, zwróci null.
+        return unit?.Prefab;
     }
 
     public UnitStats GetUnitStatsByID(int id)
@@ -48,7 +48,7 @@ public class UnitStats
     [field: SerializeField] public Sprite Sprite { get; private set; }
 
     [field: SerializeField] public List<ObjectPrices> objectPrices = new List<ObjectPrices>();
-
+    [field: SerializeField] public int maxHealth { get; private set; }
     internal ResourceTypesEnum GetCurrentGatheringeResource()
     {
         throw new NotImplementedException();
@@ -63,36 +63,8 @@ public class UnitStats
     {
         throw new NotImplementedException();
     }
+
 }
-
-//[CreateAssetMenu(fileName = "UnitStatisitcSO", menuName = "Scriptable Objects/UnitStatisitcsSO")]
-//public class UnitStatisitcSO : ScriptableObject
-//{
-//    //public UnitTool unitTool { get; private set; }
-//    [field: SerializeField] private UnitTypeEnum unitType;
-//    [field: SerializeField] private ResourceTypesEnum currentGatheringeResource;
-//    [field: SerializeField] public List<ObjectPrices> objectPrices = new List<ObjectPrices>();
-//    public UnitTypeEnum GetUnitType()
-//    {
-//        return unitType;
-//    }
-
-//    public ResourceTypesEnum GetCurrentGatheringeResource()
-//    {
-//        return currentGatheringeResource;
-//    }
-
-//    public void SetCurrentGatheringResource(ResourceTypesEnum newCurrentGatheringResource)
-//    {
-//        currentGatheringeResource = newCurrentGatheringResource;
-//    }
-//}
-
-//[CreateAssetMenu]
-//public class ObjectsDatabaseSO : ScriptableObject
-//{
-//    public List<ObjectData> objectsData;
-//}
 
 
 

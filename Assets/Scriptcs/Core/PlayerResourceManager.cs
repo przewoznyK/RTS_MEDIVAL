@@ -7,6 +7,8 @@ public enum ResourceTypesEnum
     none,
     wood,
     stone,
+    food,
+    gold
 }
 
 [Serializable]
@@ -75,10 +77,10 @@ public class PlayerResourceManager : MonoBehaviour
         {
             resource.amount -= amount;
             UpdateResourcesInUI(resourceType, resource.amount);
-            return true; // Uda³o siê odj¹æ surowce
+            return true; 
  
         }
-        return false; // Nie uda³o siê - brak zasobów
+        return false;
     }
 
     public bool CanPlayerHaveEnoughResource(ResourceTypesEnum resourceType, int amount)
@@ -86,9 +88,9 @@ public class PlayerResourceManager : MonoBehaviour
         ResourceAmount resource = resources.Find(r => r.resourceType == resourceType);
         if (resource != null && resource.amount >= amount)
         {
-            return true; // Uda³o siê odj¹æ surowce
+            return true;
         }
-        return false; // Nie uda³o siê - brak zasobów
+        return false;
     }
 
     void UpdateResourcesInUI(ResourceTypesEnum resourceType, int valueToUpdateInUI)
@@ -100,6 +102,12 @@ public class PlayerResourceManager : MonoBehaviour
                 break;
             case ResourceTypesEnum.stone:
                 UIManager.instance.UpdateUICurrentAmountStoneResource(valueToUpdateInUI);
+                break;
+            case ResourceTypesEnum.food:
+                UIManager.instance.UpdateUICurrentAmountFoodResource(valueToUpdateInUI);
+                break;
+            case ResourceTypesEnum.gold:
+                UIManager.instance.UpdateUICurrentAmountGoldResource(valueToUpdateInUI);
                 break;
             default:
                 break;

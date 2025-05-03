@@ -7,23 +7,21 @@ public class UnitUI : MonoBehaviour
     [Header("Unit")]
     [SerializeField] private Transform unitPanel;
     [SerializeField] private TextMeshProUGUI unitTitle;
-    //[Header("Units")]
-    //[SerializeField] private UnitsDatabaseSO unitsDatabase;
-    //[Header("Unit Buy Buttons")]
-    //[SerializeField] private Button[] unitBuyButton;
-    //[SerializeField] private Vector3 currentStartUnitPosition;
+    [SerializeField] private TextMeshProUGUI unitHealth;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void ActiveUnitPanelAndPrepareButtons(string unitName)
+    public void ActiveUnitPanelAndPrepareButtons(UnitRuntimeData unitData)
     {
-        if(unitName != null)
-            unitTitle.text = unitName;
+        
+        if(unitData.Name != null)
+            unitTitle.text = unitData.Name;
         else
             unitTitle.text = "NULL";
+        unitHealth.text = unitData.currentHealth + "/" + unitData.maxHealth;
         unitPanel.gameObject.SetActive(true);
     }
 

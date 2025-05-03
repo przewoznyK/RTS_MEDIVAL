@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,11 +18,15 @@ public class UnitGatheringResources : MonoBehaviour
     private ResourceTypesEnum currentGatherignResourceEnum;
     [SerializeField] private Dictionary<ResourceTypesEnum, int> currentUnitResourcesDictionary = new();
     private Coroutine gatheringRoutine;
+    [SerializeField]private Resource resource;
     [Header("Storage")]
     [SerializeField] private int maxResourcesAmount = 6;
     private Storage currentTargetStorage;
     private bool isMovingToStorage;
-   
+    private void OnDisable()
+    {
+        StopMining();
+    }
 
     private void Update()
     {
@@ -38,7 +42,7 @@ public class UnitGatheringResources : MonoBehaviour
             {
                 currentUnitResourcesDictionary = currentTargetStorage.PutInResourcesInStorage(currentUnitResourcesDictionary);
                 isMovingToStorage = false;
-                GoToResource(resourcePosition, currentGatherignResourceEnum);
+                ReturnToResource();
             }
         }
     }
@@ -74,39 +78,34 @@ public class UnitGatheringResources : MonoBehaviour
                 gatheringRoutine = StartCoroutine(GatheringWoodCycle());
                 break;
             case ResourceTypesEnum.stone:
-              
                 gatheringRoutine = StartCoroutine(GatheringStoneCycle());
                 break;
-
         }
     }
 
-    private void OnDisable()
-    {
-        if (gatheringRoutine != null)
-        {
-            StopCoroutine(gatheringRoutine);
-            gatheringRoutine = null;
-        }
-        isMovingToResources = false;
-        isMovingToStorage = false;
-    }
+
     IEnumerator GatheringWoodCycle()
     {
         animator.SetBool("IsMining", true);
-        while (true)
+        while (resource != null)
         {
             yield return new WaitForSeconds(3f);
+            if (resource == null)
+                break;
             AddResourceToDictionary(ResourceTypesEnum.wood, 3);
+            resource.SubstractResource(3);
         }
     }
     IEnumerator GatheringStoneCycle()
     {
         animator.SetBool("IsMining", true);
-        while (true)
+        while (resource != null)
         {
             yield return new WaitForSeconds(3f);
+            if (resource == null)
+                break;
             AddResourceToDictionary(ResourceTypesEnum.stone, 3);
+            resource.SubstractResource(3);
         }
     }
 
@@ -126,8 +125,10 @@ public class UnitGatheringResources : MonoBehaviour
      
     }
 
-    internal void GoToResource(Vector3 resourcePositionToSet, ResourceTypesEnum currentGatherignResourceEnumToSet)
+    internal void GoToResource(Resource resourceToSet, Vector3 resourcePositionToSet, ResourceTypesEnum currentGatherignResourceEnumToSet)
     {
+        resource = resourceToSet;
+        resourceToSet.AddUnitGatheringToList(this);
         resourcePosition = resourcePositionToSet;
         agent.SetDestination(resourcePosition);
         currentGatherignResourceEnum = currentGatherignResourceEnumToSet;
@@ -135,15 +136,35 @@ public class UnitGatheringResources : MonoBehaviour
         agent.stoppingDistance = startGatheringDistance;
 
     }
+    void ReturnToResource()
+    {
+        agent.SetDestination(resourcePosition);
+        isMovingToResources = true;
+        agent.stoppingDistance = startGatheringDistance;
 
+    }
     void UnitGoingToGatcheringResource()
     {
         if (Vector3.Distance(transform.position, resourcePosition) <= startGatheringDistance + 0.5f)
         {          
-            StartGathering();
-            isMovingToResources = false;
+            if(resource != null)
+            {
+                StartGathering();
+                isMovingToResources = false;
+
+            }
         }
     }
 
-   
+    public void StopMining()
+    {
+        animator.SetBool("IsMining", false);
+        resource = null;
+    }
+    
+    public void RemoveFromResourceList()
+    {
+        if (resource != null)
+            resource.DeleteUnitGatheringFromList(this);
+    }
 }

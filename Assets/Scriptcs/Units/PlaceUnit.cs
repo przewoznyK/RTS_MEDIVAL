@@ -18,11 +18,7 @@ public class PlaceUnit : MonoBehaviour
             GameObject newUnit = Instantiate(prefab, spawnPosition.position, Quaternion.identity);
             newUnit.GetComponent<UnitMovement>().GoMeetingPosition(meetingPosition);
             UnitStats newUnitStats = unitsDatabase.GetUnitStatsByID(id);
-            newUnit.GetComponent<Unit>().SetUnitName(newUnitStats.Name);
-        }
-        else
-        {
-            Debug.LogWarning("Nie znaleziono jednostki o ID: " + id);
+            newUnit.GetComponent<Unit>().SetUnitStats(newUnitStats);
         }
     }
 }

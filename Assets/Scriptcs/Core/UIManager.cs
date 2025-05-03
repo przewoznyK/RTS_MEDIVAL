@@ -8,19 +8,15 @@ public class UIManager : MonoBehaviour
     [Header("Player Resource")]
     [SerializeField] private TextMeshProUGUI currentAmountWoodResourceTextUI;
     [SerializeField] private TextMeshProUGUI currentAmountStoneResourceTextUI;
+    [SerializeField] private TextMeshProUGUI currentAmountFoodResourceTextUI;
+    [SerializeField] private TextMeshProUGUI currentAmountGoldResourceTextUI;
     [Header("Shop")]
     [SerializeField] private ShopUI shopUI;
 
     void Awake()
     {
         instance = this;
-
-
     }
-    //private void Start()
-    //{
-    //    shopUI.RefreshShopButtons();
-    //}
 
     public void UpdateUICurrentAmountWoodResource(int newValue)
     {
@@ -30,11 +26,14 @@ public class UIManager : MonoBehaviour
     {
         currentAmountStoneResourceTextUI.text = newValue.ToString();
     }
-
-    //public void updateShopUI()
-    //{
-    //    shopUI.RefreshShopButtons();
-    //}
+    public void UpdateUICurrentAmountFoodResource(int newValue)
+    {
+        currentAmountFoodResourceTextUI.text = newValue.ToString();
+    }
+    public void UpdateUICurrentAmountGoldResource(int newValue)
+    {
+        currentAmountGoldResourceTextUI.text = newValue.ToString();
+    }
 
 
 }

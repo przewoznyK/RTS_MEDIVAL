@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 
 public class UnitMovementGatherer : UnitMovement
@@ -27,19 +28,24 @@ public class UnitMovementGatherer : UnitMovement
 
     public override void SetUnitDestination()
     {
+        unitGatheringResources.RemoveFromResourceList();
+
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (canGatheringWood && Physics.Raycast(ray, out hit, Mathf.Infinity, woodResourceMask))
         {
+            Resource resource = hit.collider.gameObject.GetComponent<Resource>();
             unitGatheringResources.enabled = true;
-            unitGatheringResources.GoToResource(hit.point, ResourceTypesEnum.wood);
+            unitGatheringResources.GoToResource(resource, hit.point, ResourceTypesEnum.wood);
 
         }
         else if (canGatheringStone && Physics.Raycast(ray, out hit, Mathf.Infinity, stoneResourceMask))
         {
+            Resource resource = hit.collider.gameObject.GetComponent<Resource>();
+
             unitGatheringResources.enabled = true;
-            unitGatheringResources.GoToResource(hit.point, ResourceTypesEnum.stone);
+            unitGatheringResources.GoToResource(resource, hit.point, ResourceTypesEnum.stone);
             this.enabled = false;
             unitGatherer.DeactiveUnit();
 

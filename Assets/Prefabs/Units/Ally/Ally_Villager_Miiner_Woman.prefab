@@ -6973,7 +6973,7 @@ MonoBehaviour:
   animator: {fileID: 8573440586032361527}
   capsuleCollider: {fileID: 1444015964652784639}
   activator: {fileID: 1488072943792416235}
-  unitName: 
+  unitName: Miner
   unitType: 2
   teamColorEnum: 0
 --- !u!114 &1157485849427868722
@@ -6999,10 +6999,10 @@ MonoBehaviour:
     m_Bits: 4096
   startAttackingDistance: 1.5
   targetAttackTransform: {fileID: 0}
+  unitGatherer: {fileID: 3998924242043989450}
   unitGatheringResources: {fileID: 1784281894652895362}
   unitGathererType: 1
   newCurrentGatheringResource: 0
-  startGatheringDistance: 2
   canGatheringWood: 0
   canGatheringStone: 1
   woodResourceMask:
@@ -7023,7 +7023,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f428e0ffcbacd084598f6380be11ddd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  unitGatherer: {fileID: 3998924242043989450}
+  unitMovementGatherer: {fileID: 1157485849427868722}
+  animator: {fileID: 8573440586032361527}
+  agent: {fileID: 8731182762483430961}
+  startGatheringDistance: 2
+  resource: {fileID: 0}
+  maxResourcesAmount: 6
 --- !u!114 &7803077669289965979
 MonoBehaviour:
   m_ObjectHideFlags: 0

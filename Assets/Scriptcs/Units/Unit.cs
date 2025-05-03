@@ -9,18 +9,21 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     [SerializeField] protected Animator animator;
     [SerializeField] protected CapsuleCollider capsuleCollider;
     [SerializeField] protected GameObject activator;
+    [SerializeField] protected UnitStats unitStats;
+    protected UnitRuntimeData unitData;
     [SerializeField] protected string unitName;
     [SerializeField] protected UnitTypeEnum unitType;
     [SerializeField] protected TeamColorEnum teamColorEnum;
     void Start()
     {
+        unitData = new UnitRuntimeData(unitStats.Name, unitStats.unitType, unitStats.Sprite, unitStats.maxHealth); 
         UnitSelections.Instance.unitList.Add(this.gameObject);
     }
     public virtual void ActiveObject()
     {
         unitMovement.enabled = true;
         unitMovement.IsActiveFromPlayerMouse();
-        UnitUI.instance.ActiveUnitPanelAndPrepareButtons(unitName);
+        UnitUI.instance.ActiveUnitPanelAndPrepareButtons(unitData);
     }
 
 
@@ -36,6 +39,10 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
     internal void SetUnitName(string name)
     {
         unitName = name;
+    }
+    public void SetUnitStats(UnitStats unitStatsToSet)
+    {
+        unitStats = unitStatsToSet;
     }
     public UnitTypeEnum GetUnitType()
     {
@@ -62,32 +69,14 @@ public abstract class Unit : MonoBehaviour, IActiveClickable
         activator.SetActive(false);
 
     }
-    //void Update()
-    //{
 
-
-    //    if (Input.GetMouseButtonDown(1) && isActive)
-    //    {
-    //        RaycastHit hit;
-
-    //        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
-    //        {
-    //            agent.destination = hit.point;
-    //        }
-    //    }
-
-    //    animator.SetBool("IsWalking", agent.velocity.magnitude > 0.01f);
-    //}
-
-    //public void ActiveUnit()
-    //{
-
-    //    activator.SetActive(true);
-    //    isActive = true;
-    //}
     public void DeactiveUnit()
     {
         activator.SetActive(false);
     }
 
+    public UnitRuntimeData GetUnitStats()
+    {
+        return unitData;
+    }
 }
