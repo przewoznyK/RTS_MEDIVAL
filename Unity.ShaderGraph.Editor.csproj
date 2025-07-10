@@ -726,10 +726,10 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Graphs\GraphSetup.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Vector\DotProductNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Controls\PopupControl.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Round\FloorNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Advanced\ReciprocalNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Artistic\Blend\BlendNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Interfaces\IMayRequireBitangent.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Data\Nodes\Math\Round\FloorNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Generation\TargetResources\StructFields.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Drawing\Views\ShaderPort.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph\Editor\Generation\Targets\BuiltIn\Editor\ShaderGUI\BuiltInLitGUI.cs" />
